@@ -1,154 +1,58 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stay Tune - Nazwaperisa’s Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon – Nazwaperisa’s Library</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #f9c5d1, #c7d2fe);
-            font-family: "Segoe UI", Arial, sans-serif;
-            text-align: center;
-            color: #2f3a8f;
-            overflow: hidden;
-        }
+<!-- GIRLY FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-        /* sparkle effect */
-        body::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.6) 2px, transparent 3px),
-                radial-gradient(circle at 70% 60%, rgba(255,255,255,0.5) 1.5px, transparent 3px),
-                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.4) 2px, transparent 4px);
-            animation: sparkle 6s infinite alternate;
-            pointer-events: none;
-        }
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#f8cdda,#cfd9ff);
+    font-family:'Poppins', sans-serif;
+    overflow:hidden;
+}
 
-        @keyframes sparkle {
-            from { opacity: 0.6; }
-            to { opacity: 1; }
-        }
+/* fairy dust sparkle */
+.sparkle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:rgba(255,255,255,.7);
+    border-radius:50%;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    from{transform:translateY(-10vh); opacity:1;}
+    to{transform:translateY(110vh); opacity:0;}
+}
 
-        .container {
-            position: relative;
-            padding: 50px 60px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(47, 58, 143, 0.25);
-            animation: fadeIn 2s ease-in-out;
-        }
+.container{
+    position:relative;
+    padding:60px 70px;
+    border-radius:32px;
+    background:rgba(255,255,255,.38);
+    backdrop-filter:blur(14px);
+    box-shadow:0 25px 45px rgba(80,90,180,.25);
+    text-align:center;
+    animation:fadeIn 1.8s ease;
+    z-index:2;
+}
 
-        h1 {
-            font-size: 56px;
-            margin: 0;
-            letter-spacing: 4px;
-            color: #2f3a8f;
-        }
-
-        p {
-            font-size: 18px;
-            margin-top: 18px;
-            color: #4b5bdc;
-            line-height: 1.6;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin-top: 30px;
-        }
-
-        .time-box {
-            background: rgba(255,255,255,0.6);
-            border-radius: 16px;
-            padding: 15px 18px;
-            min-width: 80px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 32px;
-            font-weight: bold;
-            color: #2f3a8f;
-        }
-
-        .time-box small {
-            font-size: 12px;
-            color: #5f6eea;
-            letter-spacing: 1px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>COMING SOON</h1>
-        <p>
-            Website resmi <b>Nazwaperisa's Library</b> still in the works, brb perfecting it.<br>
-            a cozy corner on the internet, for words that actually matter✨
-        </p>
-
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <small>DAYS</small>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <small>HOURS</small>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <small>MINUTES</small>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <small>SECONDS</small>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // GANTI tanggal peluncuran di sini
-        const launchDate = new Date("2026-03-01T00:00:00").getTime();
-
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.querySelector(".countdown").innerHTML = 
-                    "<p>✨ Website sudah diluncurkan ✨</p>";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        }, 1000);
-    </script>
-</body>
-</html>
+/* floating flowers */
+.flower{
+    position:absolute;
+    font-size:42px;
+    opacity:.75;
+    animation:float 6s ease-in-out infinite;
+}
+.flower.one{top:-18px; left:-10px;}
+.flower.two{bottom:-20px; right:-12px; animation-delay:1.5s;}
+.flower.th

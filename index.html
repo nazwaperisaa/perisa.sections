@@ -55,4 +55,123 @@ body{
 }
 .flower.one{top:-18px; left:-10px;}
 .flower.two{bottom:-20px; right:-12px; animation-delay:1.5s;}
-.flower.th
+.flower.three{top:-22px; right:40px; font-size:30px; animation-delay:3s;}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* GIRLY SHINY TITLE */
+h1{
+    font-family:'Sacramento', cursive;
+    font-size:82px;
+    margin:0;
+    letter-spacing:2px;
+    background:linear-gradient(
+        120deg,
+        #ffffff 20%,
+        #ffd6e8 40%,
+        #c7d2fe 60%,
+        #ffffff 80%
+    );
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shine 3s linear infinite;
+}
+
+@keyframes shine{
+    to{background-position:200% center;}
+}
+
+p{
+    margin-top:18px;
+    font-size:17px;
+    line-height:1.7;
+    color:#4b5bdc;
+}
+
+/* countdown */
+.countdown{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    margin-top:32px;
+}
+
+.time-box{
+    background:rgba(255,255,255,.65);
+    border-radius:18px;
+    padding:14px 18px;
+    min-width:80px;
+    box-shadow:0 10px 18px rgba(0,0,0,.1);
+}
+
+.time-box span{
+    display:block;
+    font-size:28px;
+    font-weight:500;
+    color:#2f3a8f;
+}
+.time-box small{
+    font-size:11px;
+    letter-spacing:1px;
+    color:#6a7bff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- sparkles -->
+<script>
+for(let i=0;i<35;i++){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=3+Math.random()*5+"s";
+    s.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(s);
+}
+</script>
+
+<div class="container">
+    <div class="flower one">🌸</div>
+    <div class="flower two">🌷</div>
+    <div class="flower three">🌸</div>
+
+    <h1>Coming Soon</h1>
+    <p>
+        Website resmi <b>Nazwaperisa's Library</b> still in the works, brb perfecting it.<br>
+        a cozy corner on the internet, for words that actually matter💌.
+    </p>
+
+    <div class="countdown">
+        <div class="time-box"><span id="days">00</span><small>DAYS</small></div>
+        <div class="time-box"><span id="hours">00</span><small>HOURS</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>MINUTES</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>SECONDS</small></div>
+    </div>
+</div>
+
+<script>
+const launchDate=new Date("2026-03-01T00:00:00").getTime();
+setInterval(()=>{
+    const now=new Date().getTime();
+    const d=launchDate-now;
+    if(d<0)return;
+    days.innerText=Math.floor(d/(1000*60*60*24));
+    hours.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutes.innerText=Math.floor((d%(1000*60*60))/(1000*60));
+    seconds.innerText=Math.floor((d%(1000*60))/1000);
+},1000);
+</script>
+
+</body>
+</html>

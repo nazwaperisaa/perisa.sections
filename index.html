@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perisa's Library Sections — Personal Digital Space</title>
+  <title>Perisa's Library Sections</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -17,35 +17,62 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f7f3ee, #f2ece6);
-      color: #4a3f35;
+      background: linear-gradient(135deg, #fbf6f1, #f0e6dc);
+      color: #4b3b32;
       line-height: 1.7;
     }
 
     header {
       padding: 90px 20px 70px;
       text-align: center;
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       letter-spacing: 1px;
     }
 
-    header p {
+    .identity {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #6f5a4c;
+    }
+
+    .identity span {
+      display: block;
+      font-weight: 500;
+      color: #4b3b32;
+    }
+
+    .ig-link {
+      margin-top: 6px;
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #b08a6b;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .ig-link:hover {
+      color: #8b6a52;
+      text-decoration: underline;
+    }
+
+    header p.desc {
       font-size: 1.05rem;
-      color: #6a5c50;
+      color: #6f5a4c;
+      margin-top: 18px;
     }
 
     .search-box {
-      margin: 40px auto 0;
-      max-width: 420px;
+      margin: 45px auto 0;
+      max-width: 430px;
       display: flex;
-      background: #fff;
+      background: rgba(255,255,255,0.7);
       border-radius: 50px;
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
@@ -58,25 +85,26 @@
       outline: none;
       font-size: 0.95rem;
       background: transparent;
+      color: #4b3b32;
     }
 
     .search-box button {
       border: none;
       padding: 0 22px;
-      background: #cbb8a9;
+      background: linear-gradient(135deg, #d3b7a0, #b8977d);
       color: #fff;
       cursor: pointer;
       transition: 0.3s;
     }
 
     .search-box button:hover {
-      background: #b19c8a;
+      background: linear-gradient(135deg, #c4a287, #a8856c);
     }
 
     section {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding: 70px 20px;
+      padding: 75px 20px;
     }
 
     .section-title {
@@ -86,12 +114,12 @@
 
     .section-title h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       margin-bottom: 10px;
     }
 
     .section-title p {
-      color: #6a5c50;
+      color: #6f5a4c;
       font-size: 0.95rem;
     }
 
@@ -102,35 +130,39 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.7);
       backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+      padding: 26px;
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.06);
       transition: 0.4s;
+      border: 1px solid rgba(180,150,120,0.15);
     }
 
     .card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.1);
     }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
       margin-bottom: 8px;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
+      color: #4b3b32;
     }
 
     .card p {
       font-size: 0.9rem;
-      color: #6a5c50;
+      color: #6f5a4c;
     }
 
     .video-wrapper {
-      max-width: 750px;
+      max-width: 760px;
       margin: auto;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border: 1px solid rgba(180,150,120,0.2);
     }
 
     iframe {
@@ -141,10 +173,16 @@
 
     footer {
       text-align: center;
-      padding: 35px 20px;
-      background: rgba(255,255,255,0.5);
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.55);
       font-size: 0.85rem;
-      color: #6a5c50;
+      color: #6f5a4c;
+      border-top: 1px solid rgba(180,150,120,0.2);
+    }
+
+    footer span {
+      color: #4b3b32;
+      font-weight: 500;
     }
 
     @media(max-width: 600px) {
@@ -153,7 +191,7 @@
       }
 
       iframe {
-        height: 230px;
+        height: 240px;
       }
     }
   </style>
@@ -162,54 +200,67 @@
 <body>
 
 <header>
-  <h1>Library Corner</h1>
-  <p>Sebuah ruang digital yang tenang untuk membaca, berpikir, dan bertumbuh.</p>
+  <h1>Perisa's Library Sections</h1>
+
+  <div class="identity">
+    <span>Nazwa Perisa Nasution</span>
+    Mahasiswa S1 Perpustakaan dan Sains Informasi <br>
+    <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank" class="ig-link">@nazwanasutionn</a>
+  </div>
+
+  <p class="desc">
+    Ruang literasi digital modern untuk membaca, merenung, dan bertumbuh
+    dalam suasana yang tenang, hangat, dan bermakna.
+  </p>
 
   <div class="search-box">
-    <input type="text" placeholder="Cari buku, topik, atau kata kunci...">
+    <input type="text" placeholder="Cari judul buku, penulis, atau topik...">
     <button>Search</button>
   </div>
 </header>
 
-<section id="about">
+<section>
   <div class="section-title">
-    <h2>Personal Library Space</h2>
-    <p>Ruang baca modern dengan sentuhan personal yang hangat dan inspiratif</p>
+    <h2>Koleksi Buku</h2>
+    <p>Eksplorasi bacaan dalam nuansa soft, calm, dan elegan</p>
   </div>
 
   <div class="grid">
     <div class="card">
-      <h3>Digital Reading</h3>
-      <p>Temukan bacaan pilihan yang dirancang untuk memperluas wawasan dan menenangkan pikiran.</p>
+      <h3>Literasi Digital</h3>
+      <p>Teknologi, media, dan transformasi informasi.</p>
     </div>
+
     <div class="card">
-      <h3>Knowledge Notes</h3>
-      <p>Catatan kecil penuh makna untuk menemani proses belajar dan refleksi diri.</p>
+      <h3>Sains & Pengetahuan</h3>
+      <p>Ilmu pengetahuan sebagai jendela memahami dunia.</p>
     </div>
+
     <div class="card">
-      <h3>Inspiration Space</h3>
-      <p>Sudut inspirasi yang menghadirkan semangat baru dalam menjalani hari.</p>
+      <h3>Sastra & Fiksi</h3>
+      <p>Ruang imajinasi dan cerita yang penuh makna.</p>
     </div>
+
     <div class="card">
-      <h3>Creative Ideas</h3>
-      <p>Ruang eksplorasi ide, pemikiran kreatif, dan imajinasi tanpa batas.</p>
+      <h3>Pengembangan Diri</h3>
+      <p>Motivasi, refleksi, dan perjalanan mengenal diri.</p>
     </div>
   </div>
 </section>
 
-<section id="video">
+<section>
   <div class="section-title">
-    <h2>Inspirational Video</h2>
-    <p>Satu video, satu pesan, untuk menenangkan dan memotivasi</p>
+    <h2>Video Inspiratif</h2>
+    <p>Teman refleksi di sela waktu tenang</p>
   </div>
 
   <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/ZXsQAXx_ao0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/3FbiUs928NQ" allowfullscreen></iframe>
   </div>
 </section>
 
 <footer>
-  © 2026 — Perisa's Library Sections · A calm space to grow, read, and reflect
+  © 2026 — <span>Perisa's Library Sections</span> 
 </footer>
 
 </body>

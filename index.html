@@ -1,228 +1,240 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perisa's Library Sections</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perisa's Library Sections</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fbf6f1, #f0e6dc);
-      color: #4b3b32;
-      line-height: 1.7;
-    }
+body{
+  background:linear-gradient(135deg,#fbf6f1,#efe3d7);
+  color:#4b3b32;
+}
 
-    header {
-      padding: 90px 20px 70px;
-      text-align: center;
-      max-width: 950px;
-      margin: auto;
-    }
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(12px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 8%;
+  box-shadow:0 6px 25px rgba(0,0,0,0.08);
+  z-index:1000;
+}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
+nav h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;
+  letter-spacing:1px;
+}
 
-    .identity {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: #6f5a4c;
-    }
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
 
-    .identity span {
-      display: block;
-      font-weight: 500;
-      color: #4b3b32;
-    }
+nav ul li a{
+  text-decoration:none;
+  font-size:0.9rem;
+  color:#6f5a4c;
+  transition:.3s;
+}
 
-    .ig-link {
-      margin-top: 6px;
-      display: inline-block;
-      font-size: 0.85rem;
-      color: #b08a6b;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+nav ul li a:hover{
+  color:#a37d5d;
+}
 
-    .ig-link:hover {
-      color: #8b6a52;
-      text-decoration: underline;
-    }
+/* HERO */
+header{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px 80px;
+}
 
-    header p.desc {
-      font-size: 1.05rem;
-      color: #6f5a4c;
-      margin-top: 18px;
-    }
+.hero{
+  max-width:850px;
+}
 
-    .search-box {
-      margin: 45px auto 0;
-      max-width: 430px;
-      display: flex;
-      background: rgba(255,255,255,0.7);
-      border-radius: 50px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:3.4rem;
+  margin-bottom:15px;
+}
 
-    .search-box input {
-      flex: 1;
-      border: none;
-      padding: 14px 18px;
-      outline: none;
-      font-size: 0.95rem;
-      background: transparent;
-      color: #4b3b32;
-    }
+.hero p{
+  font-size:1.05rem;
+  color:#6f5a4c;
+  margin-bottom:30px;
+}
 
-    .search-box button {
-      border: none;
-      padding: 0 22px;
-      background: linear-gradient(135deg, #d3b7a0, #b8977d);
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.search-box{
+  max-width:420px;
+  margin:0 auto;
+  display:flex;
+  background:#fff;
+  border-radius:50px;
+  padding:6px 12px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
 
-    .search-box button:hover {
-      background: linear-gradient(135deg, #c4a287, #a8856c);
-    }
+.search-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:12px 14px;
+  font-size:14px;
+}
 
-    section {
-      max-width: 1150px;
-      margin: auto;
-      padding: 75px 20px;
-    }
+.search-box button{
+  border:none;
+  background:linear-gradient(135deg,#d3b7a0,#b8977d);
+  padding:10px 22px;
+  border-radius:40px;
+  color:#fff;
+  font-size:13px;
+  cursor:pointer;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+/* SECTION */
+section{
+  padding:90px 8%;
+}
 
-    .section-title h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3rem;
-      margin-bottom: 10px;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
 
-    .section-title p {
-      color: #6f5a4c;
-      font-size: 0.95rem;
-    }
+.section-title h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;
+  margin-bottom:8px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 28px;
-    }
+.section-title p{
+  font-size:0.95rem;
+  color:#6f5a4c;
+}
 
-    .card {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      padding: 26px;
-      border-radius: 20px;
-      box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-      transition: 0.4s;
-      border: 1px solid rgba(180,150,120,0.15);
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:28px;
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 55px rgba(0,0,0,0.1);
-    }
+.card{
+  background:rgba(255,255,255,0.7);
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.07);
+  transition:.4s;
+}
 
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 8px;
-      font-size: 1.35rem;
-      color: #4b3b32;
-    }
+.card:hover{
+  transform:translateY(-7px);
+}
 
-    .card p {
-      font-size: 0.9rem;
-      color: #6f5a4c;
-    }
+.card h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:8px;
+}
 
-    .video-wrapper {
-      max-width: 760px;
-      margin: auto;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-      border: 1px solid rgba(180,150,120,0.2);
-    }
+.card p{
+  font-size:0.9rem;
+  color:#6f5a4c;
+}
 
-    iframe {
-      width: 100%;
-      height: 420px;
-      border: none;
-    }
+/* ABOUT */
+.about{
+  max-width:800px;
+  margin:auto;
+  background:rgba(255,255,255,0.6);
+  padding:45px;
+  border-radius:24px;
+  box-shadow:0 18px 45px rgba(0,0,0,0.08);
+  text-align:center;
+}
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.55);
-      font-size: 0.85rem;
-      color: #6f5a4c;
-      border-top: 1px solid rgba(180,150,120,0.2);
-    }
+.about h3{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  margin-bottom:15px;
+}
 
-    footer span {
-      color: #4b3b32;
-      font-weight: 500;
-    }
+.about p{
+  font-size:0.95rem;
+  color:#6f5a4c;
+  line-height:1.8;
+}
 
-    @media(max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
+.about a{
+  display:inline-block;
+  margin-top:12px;
+  font-size:0.85rem;
+  color:#a37d5d;
+  text-decoration:none;
+}
 
-      iframe {
-        height: 240px;
-      }
-    }
-  </style>
+.about a:hover{
+  text-decoration:underline;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  font-size:0.85rem;
+  color:#6f5a4c;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{font-size:2.4rem;}
+  nav ul{gap:15px;}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>Perisa's Library Sections</h1>
+<nav>
+  <h2>Perisa's Library</h2>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#bacaan">Bacaan</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
 
-  <div class="identity">
-    <span>Nazwa Perisa Nasution</span>
-    Mahasiswa S1 Perpustakaan dan Sains Informasi <br>
-    <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank" class="ig-link">@nazwanasutionn</a>
-  </div>
+<header id="home">
+  <div class="hero">
+    <h1>Perisa's Library Sections</h1>
+    <p>Ruang literasi digital modern untuk membaca, merenung, dan bertumbuh dalam suasana yang tenang.</p>
 
-  <p class="desc">
-    Ruang literasi digital modern untuk membaca, merenung, dan bertumbuh
-    dalam suasana yang tenang, hangat, dan bermakna.
-  </p>
-
-  <div class="search-box">
-    <input type="text" placeholder="Cari judul buku, penulis, atau topik...">
-    <button>Search</button>
+    <div class="search-box">
+      <input type="text" placeholder="Cari judul, penulis, atau topik...">
+      <button>Search</button>
+    </div>
   </div>
 </header>
 
-<section>
+<section id="bacaan">
   <div class="section-title">
-    <h2>Koleksi Buku</h2>
-    <p>Eksplorasi bacaan dalam nuansa soft, calm, dan elegan</p>
+    <h2>Koleksi Bacaan</h2>
+    <p>Eksplorasi buku dalam nuansa modern, calm, dan elegan</p>
   </div>
 
   <div class="grid">
@@ -238,7 +250,7 @@
 
     <div class="card">
       <h3>Sastra & Fiksi</h3>
-      <p>Ruang imajinasi dan cerita yang penuh makna.</p>
+      <p>Cerita, novel, dan karya sastra penuh makna.</p>
     </div>
 
     <div class="card">
@@ -248,19 +260,29 @@
   </div>
 </section>
 
-<section>
+<section id="about">
   <div class="section-title">
-    <h2>Video Inspiratif</h2>
-    <p>Teman refleksi di sela waktu tenang</p>
+    <h2>About</h2>
   </div>
 
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/3FbiUs928NQ" allowfullscreen></iframe>
+  <div class="about">
+    <h3>Nazwa Perisa Nasution</h3>
+    <p>
+      Mahasiswa S1 Perpustakaan dan Sains Informasi yang memiliki ketertarikan
+      pada dunia literasi, arsip, dan pengembangan ruang baca digital.
+      Perisa’s Library Sections dibuat sebagai ruang refleksi, eksplorasi
+      pengetahuan, serta upaya menghadirkan pengalaman membaca yang tenang,
+      hangat, dan bermakna.
+    </p>
+
+    <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank">
+      Instagram · @nazwanasutionn
+    </a>
   </div>
 </section>
 
 <footer>
-  © 2026 — <span>Perisa's Library Sections</span> 
+  © 2026 — Perisa's Library Sections 
 </footer>
 
 </body>

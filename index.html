@@ -1,215 +1,216 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Library Corner</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perisa's Library Sections — Personal Digital Space</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-body{
-  background:linear-gradient(135deg,#f6f2ec,#e8ded2);
-  color:#3f3329;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f7f3ee, #f2ece6);
+      color: #4a3f35;
+      line-height: 1.7;
+    }
 
-header{
-  text-align:center;
-  padding:60px 20px 40px;
-}
+    header {
+      padding: 90px 20px 70px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
 
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:3rem;
-}
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
 
-.subtitle{
-  font-size:13px;
-  letter-spacing:2px;
-  color:#7a6957;
-  margin-top:10px;
-  text-transform:uppercase;
-}
+    header p {
+      font-size: 1.05rem;
+      color: #6a5c50;
+    }
 
-.divider{
-  width:90px;
-  height:2px;
-  background:linear-gradient(90deg,#d3b48c,#f1dfc3,#d3b48c);
-  margin:25px auto 0;
-  border-radius:20px;
-}
+    .search-box {
+      margin: 40px auto 0;
+      max-width: 420px;
+      display: flex;
+      background: #fff;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
 
-.search-box{
-  max-width:550px;
-  margin:40px auto;
-  display:flex;
-  background:#fff;
-  border-radius:50px;
-  padding:6px 12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 14px 18px;
+      outline: none;
+      font-size: 0.95rem;
+      background: transparent;
+    }
 
-.search-box input{
-  flex:1;
-  border:none;
-  outline:none;
-  padding:12px 15px;
-  font-size:14px;
-  border-radius:50px;
-}
+    .search-box button {
+      border: none;
+      padding: 0 22px;
+      background: #cbb8a9;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.search-box button{
-  border:none;
-  background:linear-gradient(135deg,#d6b892,#c3a77f);
-  padding:10px 22px;
-  border-radius:40px;
-  color:#fff;
-  font-size:13px;
-  cursor:pointer;
-}
+    .search-box button:hover {
+      background: #b19c8a;
+    }
 
-section{
-  padding:40px 8%;
-}
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
 
-h2{
-  font-family:'Playfair Display',serif;
-  margin-bottom:25px;
-  font-size:2rem;
-}
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
 
-.books{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:25px;
-}
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-.book{
-  background:rgba(255,255,255,0.75);
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.07);
-  transition:.4s ease;
-}
+    .section-title p {
+      color: #6a5c50;
+      font-size: 0.95rem;
+    }
 
-.book:hover{
-  transform:translateY(-6px);
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 28px;
+    }
 
-.book h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;
-  margin-bottom:6px;
-}
+    .card {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+      transition: 0.4s;
+    }
 
-.book p{
-  font-size:13px;
-  color:#7a6957;
-}
+    .card:hover {
+      transform: translateY(-6px);
+    }
 
-.video-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
 
-iframe{
-  width:100%;
-  height:200px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .card p {
+      font-size: 0.9rem;
+      color: #6a5c50;
+    }
 
-footer{
-  text-align:center;
-  padding:40px 20px;
-  font-size:12px;
-  color:#9c8a75;
-}
+    .video-wrapper {
+      max-width: 750px;
+      margin: auto;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
 
-/* Responsive */
-@media(max-width:600px){
-  h1{font-size:2.2rem;}
-  section{padding:30px 6%;}
-}
-</style>
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      color: #6a5c50;
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      iframe {
+        height: 230px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Perisa's Library Sections</h1>
-  <p class="subtitle">Di sudut kecil Perisa's Library Sections, merangkai ketenangan, cerita, dan pengetahuan. Sebuah ruang sederhana untuk mereka yang ingin berhenti sejenak, membuka halaman demi halaman, dan menemukan makna di balik setiap kata.
-</p>
-  <div class="divider"></div>
+  <h1>Library Corner</h1>
+  <p>Sebuah ruang digital yang tenang untuk membaca, berpikir, dan bertumbuh.</p>
 
   <div class="search-box">
-    <input type="text" id="search" placeholder="Search book, topic, or author...">
+    <input type="text" placeholder="Cari buku, topik, atau kata kunci...">
     <button>Search</button>
   </div>
 </header>
 
-<section>
-  <h2>Book Collection</h2>
-  <div class="books" id="bookList">
+<section id="about">
+  <div class="section-title">
+    <h2>Personal Library Space</h2>
+    <p>Ruang baca modern dengan sentuhan personal yang hangat dan inspiratif</p>
+  </div>
 
-    <div class="book">
-      <h3>Atomic Habits</h3>
-      <p>James Clear</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Digital Reading</h3>
+      <p>Temukan bacaan pilihan yang dirancang untuk memperluas wawasan dan menenangkan pikiran.</p>
     </div>
-
-    <div class="book">
-      <h3>Filosofi Teras</h3>
-      <p>Henry Manampiring</p>
+    <div class="card">
+      <h3>Knowledge Notes</h3>
+      <p>Catatan kecil penuh makna untuk menemani proses belajar dan refleksi diri.</p>
     </div>
-
-    <div class="book">
-      <h3>The Psychology of Money</h3>
-      <p>Morgan Housel</p>
+    <div class="card">
+      <h3>Inspiration Space</h3>
+      <p>Sudut inspirasi yang menghadirkan semangat baru dalam menjalani hari.</p>
     </div>
-
-    <div class="book">
-      <h3>Laut Bercerita</h3>
-      <p>Leila S. Chudori</p>
+    <div class="card">
+      <h3>Creative Ideas</h3>
+      <p>Ruang eksplorasi ide, pemikiran kreatif, dan imajinasi tanpa batas.</p>
     </div>
-
-    <div class="book">
-      <h3>Ikigai</h3>
-      <p>Héctor García</p>
-    </div>
-
   </div>
 </section>
 
-<section>
-  <h2>Inspirational Videos</h2>
-  <div class="video-grid">
+<section id="video">
+  <div class="section-title">
+    <h2>Inspirational Video</h2>
+    <p>Satu video, satu pesan, untuk menenangkan dan memotivasi</p>
+  </div>
 
-    <iframe src="https://www.youtube.com/embed/3FbiUs928NQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/3FbiUs928NQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/3FbiUs928NQ" allowfullscreen></iframe>
-
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/ZXsQAXx_ao0" allowfullscreen></iframe>
   </div>
 </section>
 
 <footer>
-  © 2026 — Perisa's Library Sections · Calm Knowledge Space
+  © 2026 — Perisa's Library Sections · A calm space to grow, read, and reflect
 </footer>
-
-<script>
-const search = document.getElementById("search");
-const books = document.querySelectorAll(".book");
-
-search.addEventListener("keyup", () => {
-  const value = search.value.toLowerCase();
-  books.forEach(book => {
-    const text = book.innerText.toLowerCase();
-    book.style.display = text.includes(value) ? "block" : "none";
-  });
-});
-</script>
 
 </body>
 </html>

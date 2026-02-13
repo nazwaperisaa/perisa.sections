@@ -1,309 +1,292 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perisa's Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perisa's Library</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+*{
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffffff, #f5f2f0);
-      color: #3f2d2d;
+body{
+    margin:0;
+    background:linear-gradient(135deg,#5a0f18,#f6eee6);
+    color:#3a1b1f;
+}
+
+/* Header */
+header{
+    background:linear-gradient(90deg,#4b0f16,#7a1b26);
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    font-weight:700;
+    background:linear-gradient(90deg,#f6eee6,#7a1b26);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav a{
+    margin-left:28px;
+    text-decoration:none;
+    color:#f6eee6;
+    font-weight:500;
+}
+
+nav a:hover{
+    opacity:0.85;
+}
+
+/* Section */
+section{
+    padding:90px 12%;
+}
+
+/* Hero */
+.hero{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#f6eee6,#7a1b26);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    line-height:1.9;
+    font-size:16px;
+}
+
+.hero-quote{
+    margin-top:25px;
+    font-style:italic;
+    font-size:15px;
+    color:#5a1a20;
+}
+
+.hero-img{
+    flex:1;
+}
+
+.hero-img img{
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* About */
+.about{
+    text-align:center;
+}
+
+.about img{
+    width:260px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 12px 35px rgba(0,0,0,0.25);
+}
+
+.about h2{
+    font-family:'Playfair Display', serif;
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+.about p{
+    line-height:1.9;
+}
+
+/* Highlight */
+.highlight{
+    background:rgba(255,255,255,0.55);
+    border-radius:18px;
+    padding:45px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,0.15);
+}
+
+.highlight h3{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.highlight p{
+    line-height:1.8;
+}
+
+/* Media */
+.media-links{
+    display:flex;
+    gap:22px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.media-links a{
+    padding:14px 28px;
+    background:#7a1b26;
+    color:#f6eee6;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.media-links a:hover{
+    opacity:0.85;
+}
+
+/* Gallery */
+.gallery input{
+    display:block;
+    margin:0 auto 25px;
+}
+
+.gallery-preview{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+}
+
+.gallery-preview img{
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Footer */
+footer{
+    background:#4b0f16;
+    text-align:center;
+    padding:20px;
+    color:#f6eee6;
+    font-size:14px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    header{
+        padding:18px 25px;
     }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(135deg, #5a1f1f, #7a2a2a);
-      color: #fff;
-      z-index: 10;
+    section{
+        padding:70px 8%;
     }
-
-    header h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: #fff;
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
     }
-
-    nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover { opacity: 0.85; }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffffff, #f3eeee);
-      padding: 140px 15% 80px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.6rem;
-      margin-bottom: 12px;
-      color: #5a1f1f;
-    }
-
-    .hero p {
-      color: #6f4a4a;
-      margin-bottom: 50px;
-    }
-
-    /* LINK CARD */
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-      max-width: 420px;
-      margin: auto;
-    }
-
-    .link-card {
-      background: #ffffff;
-      border: 1px solid #e0d6d6;
-      padding: 16px 22px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #5a1f1f;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: 0.3s;
-    }
-
-    .link-card:hover {
-      background: #f5f2f0;
-      transform: translateY(-3px);
-    }
-
-    .link-text span {
-      font-size: 0.8rem;
-      color: #8a6a6a;
-      display: block;
-    }
-
-    /* ABOUT */
-
-    .about-section {
-      padding: 120px 15%;
-      background: linear-gradient(135deg, #ffffff, #f6f3f1);
-      text-align: center;
-    }
-
-    .about-image img {
-      width: 260px;
-      height: 330px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      margin-bottom: 35px;
-    }
-
-    .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 18px;
-      color: #5a1f1f;
-    }
-
-    .about-text p {
-      max-width: 720px;
-      margin: auto;
-      color: #5f4a4a;
-      line-height: 1.9;
-    }
-
-    /* VIDEO */
-
-    .video-section {
-      padding: 110px 15%;
-      background: linear-gradient(135deg, #ffffff, #f4f1ef);
-      text-align: center;
-    }
-
-    .video-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-      color: #5a1f1f;
-    }
-
-    .video-section p {
-      color: #6f4a4a;
-      margin-bottom: 40px;
-    }
-
-    .video-wrapper {
-      max-width: 760px;
-      margin: auto;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .video-wrapper iframe {
-      width: 100%;
-      height: 420px;
-      border: none;
-    }
-
-    footer {
-      background: linear-gradient(135deg, #4a1919, #6b2424);
-      color: #fff;
-      padding: 45px 15%;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      text-align: left;
-    }
-
-    .footer-box h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-
-    .footer-box p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      opacity: 0.95;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 35px;
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      header { padding: 15px 25px; }
-      .hero h1 { font-size: 2.4rem; }
-      .about-image img { width: 220px; height: 280px; }
-      .video-wrapper iframe { height: 220px; }
-      footer { padding: 40px 8%; }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h3>Perisa’s Library</h3>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#media">Media</a>
-  </nav>
+    <div class="logo">Perisa's Library</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#media">Media</a>
+        <a href="#gallery">Gallery</a>
+    </nav>
 </header>
 
-<section class="hero" id="home">
-  <div>
-    <h1>Perisa’s Library</h1>
-    <p>ruang kecil untuk pikiran, cerita, dan makna</p>
-
-    <div class="link-grid">
-      <a href="https://drive.google.com/" target="_blank" class="link-card">
-        <div class="link-text">
-          <span>View My</span>
-          <strong>Curriculum Vitae</strong>
+<section id="home">
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Perisa's Library</h1>
+            <p>
+                Sebuah ruang literasi digital yang menghadirkan harmoni antara ilmu, refleksi, dan 
+                perjalanan akademis dalam bidang perpustakaan dan sains informasi. 
+                Website ini menjadi tempat berbagi gagasan, dokumentasi, dan inspirasi 
+                yang tumbuh seiring proses belajar.
+            </p>
+            <div class="hero-quote">
+                “Because every page holds a meaning, and every meaning deserves to be remembered.”
+            </div>
         </div>
-        <div>→</div>
-      </a>
-
-      <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank" class="link-card">
-        <div class="link-text">
-          <span>Follow Me</span>
-          <strong>Instagram</strong>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=80">
         </div>
-        <div>→</div>
-      </a>
     </div>
-  </div>
 </section>
 
-<section id="about" class="about-section">
-  <div class="about-image">
-    <img src="foto-kamu.jpg" alt="Nazwa Perisa">
-  </div>
-
-  <div class="about-text">
+<section id="about" class="about">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80">
     <h2>About This Website</h2>
     <p>
-      Halo semuanya! Saya <strong>Nazwa Perisa Nasution</strong>, mahasiswa aktif Program Studi
-      S1 Perpustakaan dan Sains Informasi, Universitas Sumatera Utara. Website ini saya
-      rancang sebagai ruang literasi digital yang merepresentasikan perjalanan akademik,
-      minat, serta eksplorasi saya dalam dunia informasi dan pengelolaan pengetahuan.
-      
+        Halo semuanya! Saya <b>Nazwa Perisa Nasution</b>, mahasiswa aktif S1 Perpustakaan dan Sains Informasi 
+        di Universitas Sumatera Utara. Melalui Perisa’s Library, saya ingin menghadirkan ruang yang tenang, 
+      tertata, dan inspiratif untuk menyimpan catatan pembelajaran, koleksi bacaan, arsip digital, serta refleksi
+      personal yang relevan dengan perkembangan literasi di era modern.
     </p>
-  </div>
 </section>
 
-<section id="media" class="video-section">
-  <h2>Inspiration Media</h2>
+<section class="highlight">
+    <h3>Digital Literacy & Creative Space</h3>
+    <p>
+        Perisa’s Library bukan hanya sekadar website, tetapi menjadi ruang refleksi dan ekspresi, 
+        tempat ide bertumbuh, pemikiran berkembang, dan semangat belajar terus terjaga 
+        dalam balutan suasana yang hangat, estetik, dan inspiratif.
+    </p>
+</section>
 
-  <div class="video-wrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/ZNSA0NrDeb4"
-      title="Inspirational Video"
-      allowfullscreen>
-    </iframe>
-  </div>
+<section id="media">
+    <h2 style="text-align:center;font-family:'Playfair Display', serif;">Media</h2>
+    <div class="media-links">
+        <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank">Instagram</a>
+        <a href="https://youtu.be/ZNSA0NrDeb4?si=oDQfHOYAckUDf-xh" target="_blank">YouTube</a>
+    </div>
+</section>
+
+<section id="gallery" class="gallery">
+    <h2 style="text-align:center;font-family:'Playfair Display', serif;">Gallery</h2>
+    <input type="file" accept="image/*" multiple onchange="previewImages(event)">
+    <div class="gallery-preview" id="preview"></div>
 </section>
 
 <footer>
-  <div class="footer-container">
-
-    <div class="footer-box">
-      <h4>Perisa’s Library</h4>
-      <p>
-        Ruang literasi digital yang menyimpan arsip, catatan akademik, dan refleksi
-        personal dalam nuansa yang tenang, rapi, dan bermakna.
-      </p>
-    </div>
-
-    <div class="footer-box">
-      <h4>Contact</h4>
-      <p>📞 085378245562</p>
-      <p>✉️ perisadigilib@gmail.com</p>
-      <p>📍 Medan, Sumatera Utara</p>
-    </div>
-
-    <div class="footer-box">
-      <h4>Navigation</h4>
-      <p>Home</p>
-      <p>About</p>
-      <p>Media</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
     © 2026 Perisa’s Library
-  </div>
 </footer>
+
+<script>
+function previewImages(event){
+    const preview = document.getElementById('preview');
+    const files = event.target.files;
+
+    for(let i=0;i<files.length;i++){
+        const reader = new FileReader();
+        reader.onload = function(){
+            const img = document.createElement('img');
+            img.src = reader.result;
+            preview.appendChild(img);
+        }
+        reader.readAsDataURL(files[i]);
+    }
+}
+</script>
 
 </body>
 </html>

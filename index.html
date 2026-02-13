@@ -12,7 +12,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #faf7f2;
+      background: linear-gradient(135deg, #f8e6e6, #fdf7f4);
       color: #4a3f35;
     }
 
@@ -24,33 +24,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(250,247,242,0.95);
-      backdrop-filter: blur(6px);
+      background: linear-gradient(135deg, #9c3b3b, #c65c5c);
+      color: #fff;
       z-index: 10;
     }
 
     header h3 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      color: #5a4a3a;
+      color: #fff;
     }
 
     nav a {
       margin-left: 30px;
       text-decoration: none;
-      color: #5a4a3a;
+      color: #fff;
       font-weight: 500;
       transition: 0.3s;
     }
 
-    nav a:hover { color: #b08968; }
+    nav a:hover {
+      opacity: 0.85;
+    }
 
     .hero {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #f6efe7, #efe5d8);
+      background: linear-gradient(135deg, #f3caca, #f9ecec);
       padding: 140px 15% 80px;
       text-align: center;
     }
@@ -59,14 +61,15 @@
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem;
       margin-bottom: 12px;
+      color: #5a2a2a;
     }
 
     .hero p {
-      color: #7a6a5c;
+      color: #7a4a4a;
       margin-bottom: 50px;
     }
 
-    /* CUSTOM BUTTON LAYOUT */
+    /* LINK CARD */
 
     .link-grid {
       display: grid;
@@ -77,12 +80,12 @@
     }
 
     .link-card {
-      background: #ffffff;
-      border: 1px solid #e3d8cb;
+      background: #fff;
+      border: 1px solid #e6cfcf;
       padding: 16px 22px;
       border-radius: 14px;
       text-decoration: none;
-      color: #5a4a3a;
+      color: #5a2a2a;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -90,33 +93,21 @@
     }
 
     .link-card:hover {
-      background: #f3eadf;
+      background: #f6dede;
       transform: translateY(-3px);
-    }
-
-    .link-text {
-      text-align: left;
     }
 
     .link-text span {
       font-size: 0.8rem;
-      color: #9c8c7c;
+      color: #9c6a6a;
       display: block;
-    }
-
-    .link-text strong {
-      font-size: 1rem;
-    }
-
-    .arrow {
-      font-size: 1.2rem;
     }
 
     /* ABOUT */
 
     .about-section {
       padding: 120px 15%;
-      background: #f5efe7;
+      background: linear-gradient(135deg, #fdf4f4, #f6dede);
       text-align: center;
     }
 
@@ -133,13 +124,13 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
       margin-bottom: 18px;
-      color: #5a4a3a;
+      color: #5a2a2a;
     }
 
     .about-text p {
       max-width: 720px;
       margin: auto;
-      color: #6f6154;
+      color: #6f4a4a;
       line-height: 1.9;
     }
 
@@ -147,7 +138,7 @@
 
     .video-section {
       padding: 110px 15%;
-      background: #faf7f2;
+      background: linear-gradient(135deg, #f9eaea, #fdeeee);
       text-align: center;
     }
 
@@ -155,10 +146,11 @@
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
       margin-bottom: 10px;
+      color: #5a2a2a;
     }
 
     .video-section p {
-      color: #7a6a5c;
+      color: #7a4a4a;
       margin-bottom: 40px;
     }
 
@@ -177,26 +169,18 @@
     }
 
     footer {
-      background: #efe5d8;
+      background: linear-gradient(135deg, #7a2424, #9c3b3b);
       text-align: center;
-      padding: 25px;
+      padding: 28px;
       font-size: 0.9rem;
-      color: #7a6a5c;
+      color: #fff;
     }
 
     @media (max-width: 768px) {
       header { padding: 15px 25px; }
-
       .hero h1 { font-size: 2.4rem; }
-
-      .about-image img {
-        width: 220px;
-        height: 280px;
-      }
-
-      .video-wrapper iframe {
-        height: 220px;
-      }
+      .about-image img { width: 220px; height: 280px; }
+      .video-wrapper iframe { height: 220px; }
     }
   </style>
 </head>
@@ -208,6 +192,7 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#media">Media</a>
   </nav>
 </header>
 
@@ -222,15 +207,15 @@
           <span>View My</span>
           <strong>Curriculum Vitae</strong>
         </div>
-        <div class="arrow">→</div>
+        <div>→</div>
       </a>
 
-      <a href="https://instagram.com/" target="_blank" class="link-card">
+      <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank" class="link-card">
         <div class="link-text">
-          <span>Follow Me on</span>
+          <span>Follow Me</span>
           <strong>Instagram</strong>
         </div>
-        <div class="arrow">→</div>
+        <div>→</div>
       </a>
     </div>
   </div>
@@ -256,13 +241,13 @@
   </div>
 </section>
 
-<section class="video-section">
-  <h2>Inspiration Video</h2>
-  <p>sebuah visual singkat yang semoga memberi ketenangan dan semangat 🤍</p>
+<section id="media" class="video-section">
+  <h2>Inspiration Media</h2>
+  <p>sedikit visual yang semoga bisa memberi ketenangan dan semangat.</p>
 
   <div class="video-wrapper">
     <iframe 
-      src="https://www.youtube.com/embed/lTRiuFIWV54"
+      src="https://www.youtube.com/embed/ZNSA0NrDeb4"
       title="Inspirational Video"
       allowfullscreen>
     </iframe>
@@ -270,7 +255,7 @@
 </section>
 
 <footer>
-  © 2026 Perisa’s Library 
+  © 2026 Perisa’s Library
 </footer>
 
 </body>

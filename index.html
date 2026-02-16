@@ -71,13 +71,27 @@ section{padding:90px 12%;}
 
 /* About */
 .about{text-align:center;}
+
 .about img{
     width:260px;
     height:260px;
     object-fit:cover;
-    border-radius:16px;
-    margin-bottom:25px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.25);
+    border-radius:20px;
+    padding:6px;
+    background:linear-gradient(135deg,#7a1b26,#f6eee6);
+    box-shadow:
+        0 0 18px rgba(122,27,38,0.6),
+        0 0 32px rgba(246,238,230,0.5),
+        0 18px 45px rgba(0,0,0,0.35);
+    transition:0.4s ease;
+}
+
+.about img:hover{
+    transform:scale(1.06);
+    box-shadow:
+        0 0 26px rgba(122,27,38,0.75),
+        0 0 42px rgba(246,238,230,0.65),
+        0 22px 55px rgba(0,0,0,0.4);
 }
 
 .about h2{
@@ -150,11 +164,12 @@ section{padding:90px 12%;}
     text-decoration:none;
     color:#4b0f16;
     box-shadow:0 10px 28px rgba(0,0,0,0.18);
-    transition:0.3s;
+    transition:0.35s;
 }
 
 .media-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 14px 35px rgba(122,27,38,0.45);
 }
 
 .media-icon{
@@ -206,8 +221,10 @@ footer{
     <div class="hero-text">
         <h1>Perisa's Library</h1>
         <p>
-            Sebuah ruang literasi digital yang memadukan dokumentasi akademik, refleksi personal,
-            serta eksplorasi dalam bidang perpustakaan dan sains informasi.
+            Sebuah ruang literasi digital yang bisa jadi tempat berbagi dokumentasi akademik, 
+            refleksi personal, serta eksplorasi ide dan pengetahuan dalam bidang 
+            perpustakaan dan sains informasi, untuk mendukung proses belajar yang lebih terbuka, 
+            nyaman, dan bermakna.
         </p>
     </div>
     <div class="hero-img">
@@ -216,13 +233,13 @@ footer{
 </section>
 
 <section id="about" class="about">
-    <!-- GANTI FOTO INI DENGAN FOTO KAMU SENDIRI -->
-    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2">
+    <!-- GANTI DENGAN FOTO KAMU SENDIRI -->
+    <img src="fotoku.jpg">
     <h2>About This Website</h2>
     <p>
         Website ini dikembangkan oleh <b>Nazwa Perisa Nasution</b>, mahasiswa aktif S1 Perpustakaan dan
         Sains Informasi Universitas Sumatera Utara. Perisa’s Library hadir sebagai ruang literasi digital
-        untuk menyimpan arsip, catatan pembelajaran, koleksi bacaan, serta refleksi akademik.
+        yang mendukung dokumentasi akademik, eksplorasi ide, serta refleksi pembelajaran.
     </p>
 </section>
 
@@ -266,7 +283,7 @@ footer{
     <h2 style="text-align:center;font-family:'Playfair Display', serif;">Media</h2>
 
     <div class="media-links">
-        <a href="#" class="media-card">
+        <a href="https://drive.google.com/file/d/1oIdGgCGYG0sReM83AxlnkCbyHn_J0kRN/view?usp=drivesdk" target="_blank" class="media-card">
             <div class="media-icon">📄</div>
             <div>
                 <strong>Curriculum Vitae</strong>

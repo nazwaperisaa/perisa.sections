@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perisa's Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
@@ -80,12 +80,12 @@ nav a{
 
 .form-group label{
     font-size:13px;
-    font-weight:600;
+    font-weight:500;
 }
 
 .form-group input{
     width:100%;
-    padding:11px 12px;
+    padding:10px 12px;
     border-radius:10px;
     border:1px solid #ccc;
     outline:none;
@@ -121,6 +121,7 @@ section{padding:90px 12%;}
     flex-wrap:wrap;
 }
 
+.hero-text{flex:1;}
 .hero-text h1{
     font-family:'Playfair Display', serif;
     font-size:52px;
@@ -130,6 +131,13 @@ section{padding:90px 12%;}
 }
 
 .hero-text p{line-height:1.9;}
+
+.hero-img{flex:1;}
+.hero-img img{
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
 
 /* ABOUT */
 .about{text-align:center;}
@@ -141,6 +149,15 @@ section{padding:90px 12%;}
     border-radius:20px;
     padding:6px;
     background:linear-gradient(135deg,#7a1b26,#f6eee6);
+    box-shadow:
+        0 0 18px rgba(122,27,38,0.6),
+        0 0 32px rgba(246,238,230,0.5),
+        0 18px 45px rgba(0,0,0,0.35);
+    transition:0.4s ease;
+}
+
+.about img:hover{
+    transform:scale(1.06);
 }
 
 /* COLLECTION */
@@ -154,6 +171,8 @@ section{padding:90px 12%;}
     padding:14px 18px;
     border-radius:12px;
     border:none;
+    outline:none;
+    font-size:15px;
 }
 
 .book-grid{
@@ -167,6 +186,13 @@ section{padding:90px 12%;}
     border-radius:14px;
     padding:15px;
     text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+}
+
+.book img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:12px;
 }
 
 /* MEDIA */
@@ -176,6 +202,18 @@ section{padding:90px 12%;}
     gap:25px;
     max-width:550px;
     margin:0 auto;
+}
+
+.media-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 22px;
+    background:rgba(255,255,255,0.55);
+    border-radius:14px;
+    text-decoration:none;
+    color:#4b0f16;
+    box-shadow:0 10px 28px rgba(0,0,0,0.18);
 }
 
 /* VIDEO */
@@ -189,46 +227,15 @@ section{padding:90px 12%;}
 }
 
 /* CONTACT */
-.contact{
-    text-align:center;
-    background:linear-gradient(135deg,#7a1b26,#4b0f16);
-    color:#f6eee6;
-    border-radius:35px 35px 0 0;
-}
+.contact{text-align:center;}
 
 .feedback-box{
-    max-width:560px;
+    max-width:520px;
     margin:40px auto 0;
-    background:rgba(255,255,255,0.95);
-    padding:35px;
+    background:rgba(255,255,255,0.6);
+    padding:30px;
     border-radius:18px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.35);
-}
-
-.feedback-box label{
-    font-weight:600;
-    font-size:14px;
-    color:#4b0f16;
-}
-
-.feedback-box input,
-.feedback-box textarea{
-    width:100%;
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #ccc;
-    font-weight:500;
-}
-
-.feedback-box button{
-    width:100%;
-    margin-top:12px;
-    padding:12px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(90deg,#7a1b26,#4b0f16);
-    color:#fff;
-    font-weight:600;
+    box-shadow:0 10px 28px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
@@ -237,11 +244,13 @@ footer{
     text-align:center;
     padding:18px;
     color:#f6eee6;
+    font-size:14px;
 }
 
 @media(max-width:900px){
     header{padding:18px 25px;}
     section{padding:70px 8%;}
+    .hero{flex-direction:column-reverse;text-align:center;}
 }
 </style>
 </head>
@@ -285,11 +294,6 @@ footer{
             <input type="tel" id="phone">
         </div>
 
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password">
-        </div>
-
         <button onclick="saveLogin()">Masuk</button>
         <div class="close-btn" onclick="closeLogin()">Tutup</div>
     </div>
@@ -299,14 +303,99 @@ footer{
 <section id="home" class="hero">
     <div class="hero-text">
         <h1>Perisa's Library</h1>
-        <p>Sebuah ruang literasi digital untuk berbagi dokumentasi akademik dan eksplorasi ide.</p>
+        <p>
+            Sebuah ruang literasi digital yang bisa jadi tempat berbagi dokumentasi akademik, 
+            refleksi personal, serta eksplorasi ide dan pengetahuan dalam bidang 
+            perpustakaan dan sains informasi, untuk mendukung proses belajar yang lebih terbuka, 
+            nyaman, dan bermakna.
+        </p>
     </div>
+    <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <img src="foto.jpg">
+    <h2>About This Website</h2>
+    <p>
+        Website ini dikembangkan oleh <b>Nazwa Perisa Nasution</b>, mahasiswa aktif S1 Perpustakaan dan
+        Sains Informasi Universitas Sumatera Utara. Perisa’s Library hadir sebagai ruang literasi digital
+        yang mendukung dokumentasi akademik, eksplorasi ide, serta refleksi pembelajaran.
+    </p>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+    <h2 style="text-align:center;font-family:'Playfair Display', serif;">Digital Book Collection</h2>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Cari judul buku..." onkeyup="searchBooks()">
+    </div>
+
+    <div class="book-grid" id="bookGrid">
+
+        <div class="book">
+            <img src="https://covers.openlibrary.org/b/id/10523357-L.jpg">
+            <h4>Pengantar Ilmu Perpustakaan</h4>
+            <p>Sulistyo Basuki</p>
+        </div>
+
+        <div class="book">
+            <img src="https://covers.openlibrary.org/b/id/11153248-L.jpg">
+            <h4>Manajemen Informasi</h4>
+            <p>Jogiyanto</p>
+        </div>
+
+        <div class="book">
+            <img src="https://covers.openlibrary.org/b/id/10507859-L.jpg">
+            <h4>Literasi Digital</h4>
+            <p>Paul Gilster</p>
+        </div>
+
+        <div class="book">
+            <img src="https://covers.openlibrary.org/b/id/10620638-L.jpg">
+            <h4>Knowledge Management</h4>
+            <p>Nonaka & Takeuchi</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+    <h2 style="text-align:center;font-family:'Playfair Display', serif;">Media</h2>
+
+    <div class="media-links">
+        <a href="https://drive.google.com/file/d/1oIdGgCGYG0sReM83AxlnkCbyHn_J0kRN/view?usp=drivesdk" target="_blank" class="media-card">
+            <div class="media-icon">📄</div>
+            <div>
+                <strong>Curriculum Vitae</strong>
+                <p style="margin:0;font-size:12px;">Download CV</p>
+            </div>
+        </a>
+
+        <a href="https://www.instagram.com/nazwanasutionn/#" target="_blank" class="media-card">
+            <div class="media-icon">📷</div>
+            <div>
+                <strong>Instagram</strong>
+                <p style="margin:0;font-size:12px;">@nazwanasutionn</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video">
+    <h2 style="text-align:center;font-family:'Playfair Display', serif;">Video Inspirations</h2>
+    <iframe src="https://www.youtube.com/embed/ZNSA0NrDeb4"></iframe>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
     <h2 style="font-family:'Playfair Display', serif;">Contact Us</h2>
-    <p style="font-weight:600;">Kami sangat menghargai kritik, saran, dan pesan dari kamu 💬</p>
+    <p>Kirimkan pesan, kritik, dan saran untuk Perisa’s Library 💬</p>
 
     <div class="feedback-box">
         <div class="form-group">
@@ -353,6 +442,16 @@ window.onload = function(){
     let name = localStorage.getItem("username");
     if(name){
         document.getElementById("loginBtn").innerText="Hi, "+name+" 👋";
+    }
+}
+
+function searchBooks() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let books = document.getElementsByClassName("book");
+
+    for (let i = 0; i < books.length; i++) {
+        let title = books[i].getElementsByTagName("h4")[0].innerText.toLowerCase();
+        books[i].style.display = title.includes(input) ? "" : "none";
     }
 }
 

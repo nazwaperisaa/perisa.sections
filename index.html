@@ -1,236 +1,139 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perisa's Library</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Perpustakaan Digital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-*{box-sizing:border-box;font-family:'Poppins', sans-serif;scroll-behavior:smooth;}
-
 body{
     margin:0;
-    background:linear-gradient(135deg,#5a0f18,#f6eee6);
-    color:#3a1b1f;
+    font-family:Arial, sans-serif;
 }
 
 /* HEADER */
 header{
-    background:linear-gradient(90deg,#4b0f16,#7a1b26);
-    padding:20px 60px;
+    background:#800000;
+    color:white;
+    padding:15px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.logo{
-    font-family:'Playfair Display', serif;
-    font-size:30px;
-    font-weight:700;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav a{
-    margin-left:25px;
-    text-decoration:none;
-    color:#f6eee6;
-    font-weight:500;
-}
-
-.login-btn{
-    padding:8px 16px;
-    border-radius:20px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
-    cursor:pointer;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
-
-.modal-box{
-    background:linear-gradient(135deg,#fff,#f6eee6);
-    padding:30px 35px;
-    border-radius:18px;
-    width:100%;
-    max-width:420px;
-    box-shadow:0 15px 45px rgba(0,0,0,0.35);
-}
-
-.modal-box h2{
-    text-align:center;
-    font-family:'Playfair Display', serif;
-}
-
-/* TAB */
-.tab-menu{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin-bottom:15px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-.active-tab{
-    border-bottom:2px solid #7a1b26;
-    color:#7a1b26;
-}
-
-.form-group{margin-bottom:14px;}
-
-.form-group input{
-    width:100%;
-    padding:10px 12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
-
-/* BUTTON */
-.modal-box button{
-    width:100%;
-    padding:12px;
+header button{
+    padding:7px 15px;
     border:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#7a1b26,#4b0f16);
-    color:#fff;
-    font-weight:600;
+    background:white;
+    color:#800000;
     cursor:pointer;
-    margin-top:10px;
+    border-radius:5px;
+    font-weight:bold;
 }
 
-.close-btn{
-    text-align:center;
-    margin-top:10px;
-    cursor:pointer;
-    color:#7a1b26;
+/* CONTENT */
+.container{
+    padding:20px;
 }
 
-/* SECTION */
-section{padding:90px 12%;}
-
-/* HERO */
-.hero{
-    display:flex;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.hero-text{flex:1;}
-
-.hero-text h1{
-    font-family:'Playfair Display', serif;
-    font-size:52px;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero-img img{
-    width:100%;
-    border-radius:14px;
-}
-
-/* PROFILE */
-.profile{text-align:center;}
-
-.profile-box{
-    max-width:750px;
-    margin:30px auto;
-    background:rgba(255,255,255,0.6);
-    padding:35px;
-    border-radius:25px;
-}
-
-/* COLLECTION */
+/* SEARCH */
 .search-box{
-    max-width:500px;
-    margin:0 auto 35px;
+    margin:20px 0;
 }
 
 .search-box input{
-    width:100%;
-    padding:14px;
-    border-radius:12px;
+    padding:8px;
+    width:250px;
+}
+
+.search-box button{
+    padding:8px 12px;
+    background:#800000;
+    color:white;
     border:none;
-}
-
-.book-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:25px;
-}
-
-.book{
-    background:rgba(255,255,255,0.55);
-    border-radius:14px;
-    padding:15px;
-    text-align:center;
-}
-
-.book img{
-    width:100%;
-    border-radius:10px;
-}
-
-/* CONTACT */
-.contact{text-align:center;}
-
-.feedback-box{
-    max-width:520px;
-    margin:40px auto 0;
-    background:linear-gradient(135deg,#7a1b26,#4b0f16);
-    padding:35px;
-    border-radius:50px;
-    color:#fff;
-}
-
-.feedback-box input{
-    width:100%;
-    padding:14px;
-    border-radius:40px;
-    border:none;
-    margin-bottom:15px;
-}
-
-.feedback-box textarea{
-    width:100%;
-    padding:20px;
-    border-radius:100px;
-    border:none;
-    resize:none;
-    margin-bottom:18px;
-}
-
-.feedback-box button{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:40px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
     cursor:pointer;
 }
 
-footer{
-    background:#4b0f16;
-    text-align:center;
-    padding:18px;
-    color:#f6eee6;
+/* BOOK LIST */
+.book{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+/* CONTACT US */
+.contact{
+    background:#a52a2a;
+    padding:25px;
+    color:white;
+    margin-top:40px;
+}
+
+.contact h2{
+    font-weight:bold;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:8px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:5px;
+}
+
+.contact button{
+    padding:10px;
+    background:white;
+    color:#800000;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* LOGIN MODAL */
+#loginModal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:white;
+    width:350px;
+    padding:20px;
+    border-radius:10px;
+    position:relative;
+    font-size:14px;
+}
+
+.modal-box input{
+    width:100%;
+    padding:6px;
+    margin-bottom:8px;
+}
+
+.modal-box button{
+    width:100%;
+    padding:7px;
+    background:#800000;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -238,173 +141,142 @@ footer{
 <body>
 
 <header>
-<div class="logo">Perisa's Library</div>
-<nav>
-<a href="#home">Home</a>
-<a href="#profile">Profile</a>
-<a href="#collection">Collection</a>
-<a href="#contact">Contact</a>
-<span class="login-btn" id="loginBtn" onclick="openLogin()">Login</span>
-</nav>
+    <h3>Perpustakaan Digital</h3>
+    <button id="loginBtn" onclick="openLogin()">Login</button>
 </header>
 
-<!-- LOGIN & SIGNUP MODAL -->
-<div class="modal" id="loginModal">
+<div class="container">
+
+    <h2>Selamat Datang</h2>
+    <p>Website ini menyediakan berbagai koleksi buku. Kamu tetap bisa melihat semua isi walaupun belum login.</p>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari buku...">
+        <button onclick="searchBook()">Cari</button>
+    </div>
+
+    <!-- BOOK LIST -->
+    <div id="bookList">
+        <div class="book">Laskar Pelangi</div>
+        <div class="book">Bumi Manusia</div>
+        <div class="book">Negeri 5 Menara</div>
+        <div class="book">Ayat-Ayat Cinta</div>
+    </div>
+
+</div>
+
+<!-- CONTACT US -->
+<div class="contact">
+    <h2>Contact Us</h2>
+    <input type="text" placeholder="Nama">
+    <input type="email" placeholder="Email">
+    <textarea rows="4" placeholder="Tulis feedback kamu..."></textarea>
+    <button>Kirim Feedback</button>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal">
 <div class="modal-box">
 
-<div class="tab-menu">
-<span id="loginTab" onclick="showLogin()" class="active-tab">Login</span>
-<span id="signupTab" onclick="showSignup()">Sign Up</span>
+<span class="close" onclick="closeLogin()">×</span>
+
+<div style="display:flex; gap:10px; margin-bottom:15px;">
+<button onclick="showLogin()">Login</button>
+<button onclick="showSignup()">Sign Up</button>
 </div>
 
+<!-- LOGIN -->
 <div id="loginForm">
-<h2>Login</h2>
-<div class="form-group">
 <input type="email" id="loginEmail" placeholder="Email">
-</div>
-<div class="form-group">
 <input type="password" id="loginPassword" placeholder="Password">
-</div>
-<button onclick="loginUser()">Masuk</button>
+<button onclick="loginUser()">Login</button>
 </div>
 
+<!-- SIGN UP -->
 <div id="signupForm" style="display:none;">
-<h2>Sign Up</h2>
-<div class="form-group">
 <input type="text" id="signupName" placeholder="Nama">
-</div>
-<div class="form-group">
 <input type="email" id="signupEmail" placeholder="Email">
-</div>
-<div class="form-group">
 <input type="password" id="signupPassword" placeholder="Password">
-</div>
-<div class="form-group">
-<input type="password" id="signupConfirm" placeholder="Masukkan kembali password">
-</div>
-<button onclick="registerUser()">Daftar</button>
+<input type="password" id="signupConfirm" placeholder="Masukkan kembali Password">
+<button onclick="registerUser()">Sign Up</button>
 </div>
 
-<div class="close-btn" onclick="closeLogin()">Tutup</div>
 </div>
 </div>
-
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="hero-text">
-<h1>Perisa's Library</h1>
-<p>Ruang literasi digital untuk dokumentasi akademik dan eksplorasi ide.</p>
-</div>
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
-</div>
-</section>
-
-<!-- PROFILE -->
-<section id="profile" class="profile">
-<h2>Visi & Misi</h2>
-<div class="profile-box">
-<h3>Visi</h3>
-<p>Menjadi ruang literasi digital yang inspiratif dan inovatif.</p>
-<h3>Misi</h3>
-<p>1. Menyediakan dokumentasi akademik.<br>
-2. Mengembangkan budaya literasi digital.<br>
-3. Wadah berbagi ide.</p>
-</div>
-</section>
-
-<!-- COLLECTION -->
-<section id="collection">
-<h2 style="text-align:center;">Digital Book Collection</h2>
-<div class="search-box">
-<input type="text" id="search" placeholder="Cari judul buku..." onkeyup="searchBooks()">
-</div>
-
-<div class="book-grid">
-<div class="book">
-<img src="https://covers.openlibrary.org/b/id/10523357-L.jpg">
-<h4>Pengantar Ilmu Perpustakaan</h4>
-<p>Sulistyo Basuki</p>
-</div>
-
-<div class="book">
-<img src="https://covers.openlibrary.org/b/id/10507859-L.jpg">
-<h4>Literasi Digital</h4>
-<p>Paul Gilster</p>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<div class="feedback-box">
-<input type="text" placeholder="Nama">
-<input type="email" placeholder="Email">
-<textarea rows="3" placeholder="Feedback"></textarea>
-<button>Kirim</button>
-</div>
-</section>
-
-<footer>© 2026 Perisa’s Library</footer>
 
 <script>
-function openLogin(){loginModal.style.display="flex";}
-function closeLogin(){loginModal.style.display="none";}
+
+/* SEARCH */
+function searchBook(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let books = document.getElementsByClassName("book");
+
+    for(let i=0; i<books.length; i++){
+        let text = books[i].innerText.toLowerCase();
+        books[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+
+/* LOGIN SYSTEM */
+function openLogin(){
+    document.getElementById("loginModal").style.display="flex";
+}
+
+function closeLogin(){
+    document.getElementById("loginModal").style.display="none";
+}
 
 function showLogin(){
-loginForm.style.display="block";
-signupForm.style.display="none";
-loginTab.classList.add("active-tab");
-signupTab.classList.remove("active-tab");
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("signupForm").style.display="none";
 }
 
 function showSignup(){
-loginForm.style.display="none";
-signupForm.style.display="block";
-signupTab.classList.add("active-tab");
-loginTab.classList.remove("active-tab");
+    document.getElementById("loginForm").style.display="none";
+    document.getElementById("signupForm").style.display="block";
 }
 
 function registerUser(){
-let name=signupName.value;
-let email=signupEmail.value;
-let pass=signupPassword.value;
-let confirm=signupConfirm.value;
+    let name = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let pass = document.getElementById("signupPassword").value;
+    let confirm = document.getElementById("signupConfirm").value;
 
-if(!name||!email||!pass){alert("Semua data wajib diisi 😊");return;}
-if(pass!==confirm){alert("Password tidak cocok!");return;}
+    if(!name || !email || !pass){
+        alert("Semua data wajib diisi");
+        return;
+    }
 
-localStorage.setItem("userName",name);
-localStorage.setItem("userEmail",email);
-localStorage.setItem("userPassword",pass);
+    if(pass !== confirm){
+        alert("Password tidak cocok");
+        return;
+    }
 
-alert("Berhasil daftar! Silakan login ✨");
-showLogin();
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", pass);
+
+    alert("Berhasil daftar! Silakan login");
+    showLogin();
 }
 
 function loginUser(){
-if(loginEmail.value===localStorage.getItem("userEmail") &&
-loginPassword.value===localStorage.getItem("userPassword")){
-loginBtn.innerText="Hi, "+localStorage.getItem("userName")+" 👋";
-localStorage.setItem("username",localStorage.getItem("userName"));
-closeLogin();
-}else{alert("Email atau password salah!");}
+    let email = document.getElementById("loginEmail").value;
+    let pass = document.getElementById("loginPassword").value;
+
+    let savedEmail = localStorage.getItem("userEmail");
+    let savedPass = localStorage.getItem("userPassword");
+    let savedName = localStorage.getItem("userName");
+
+    if(email === savedEmail && pass === savedPass){
+        document.getElementById("loginBtn").innerText = "Hi, " + savedName;
+        closeLogin();
+    } else {
+        alert("Email atau password salah");
+    }
 }
 
-window.onload=function(){
-let name=localStorage.getItem("username");
-if(name){loginBtn.innerText="Hi, "+name+" 👋";}
-}
-
-function searchBooks(){
-let input=search.value.toLowerCase();
-let books=document.querySelectorAll(".book");
-books.forEach(book=>{
-let title=book.querySelector("h4").innerText.toLowerCase();
-book.style.display=title.includes(input)?"":"none";
-});
-}
 </script>
 
 </body>

@@ -19,7 +19,7 @@ body{
 /* HEADER */
 header{
     background:linear-gradient(90deg,#4b0f16,#7a1b26);
-    padding:20px 60px;
+    padding:18px 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -27,7 +27,7 @@ header{
 
 .logo{
     font-family:'Playfair Display', serif;
-    font-size:30px;
+    font-size:28px;
     font-weight:700;
     background:linear-gradient(90deg,#f6eee6,#7a1b26);
     -webkit-background-clip:text;
@@ -43,14 +43,69 @@ nav a{
 }
 
 .login-btn{
-    padding:8px 16px;
-    border-radius:25px;
+    padding:7px 15px;
+    border-radius:20px;
     background:#f6eee6;
     color:#7a1b26;
     font-weight:600;
 }
 
-/* MODAL LOGIN */
+/* SECTION */
+section{padding:80px 12%;}
+
+.hero{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-text{flex:1;}
+.hero-text h1{
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+    background:linear-gradient(90deg,#f6eee6,#7a1b26);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-img img{
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.section-title{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+/* VISI MISI VERTICAL */
+.vm-container{
+    max-width:650px;
+}
+
+.vm-box{
+    background:linear-gradient(135deg,#ffffff,#b44a54);
+    padding:20px 30px;
+    border-radius:40px;
+    margin-bottom:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.vm-box h3{
+    margin-top:0;
+    font-weight:700;
+    color:#4b0f16;
+}
+
+.vm-box p{
+    margin:0;
+    font-size:14px;
+}
+
+/* MODAL (LOGIN + CONTACT) */
 .modal{
     display:none;
     position:fixed;
@@ -62,9 +117,9 @@ nav a{
 }
 
 .modal-box{
-    background:linear-gradient(135deg,#fff,#f6eee6);
-    padding:30px 35px;
-    border-radius:20px;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
     width:100%;
     max-width:420px;
     box-shadow:0 15px 45px rgba(0,0,0,0.35);
@@ -77,35 +132,19 @@ nav a{
 
 .form-group{margin-bottom:14px;}
 .form-group label{font-size:13px;font-weight:600;}
-
-.form-group input{
+.form-group input, .form-group textarea{
     width:100%;
-    padding:10px 12px;
-    border-radius:12px;
+    padding:10px;
+    border-radius:10px;
     border:1px solid #ccc;
     outline:none;
-}
-
-.password-wrapper{
-    position:relative;
-}
-
-.toggle-pass{
-    position:absolute;
-    right:12px;
-    top:50%;
-    transform:translateY(-50%);
-    cursor:pointer;
-    font-size:13px;
-    color:#7a1b26;
-    font-weight:600;
 }
 
 .modal-box button{
     width:100%;
     padding:12px;
     border:none;
-    border-radius:14px;
+    border-radius:12px;
     background:linear-gradient(90deg,#7a1b26,#4b0f16);
     color:#fff;
     font-weight:600;
@@ -121,99 +160,18 @@ nav a{
     color:#7a1b26;
 }
 
-/* SECTION */
-section{padding:90px 12%;}
-
-.hero{
-    display:flex;
-    align-items:center;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.hero-text{flex:1;}
-.hero-text h1{
-    font-family:'Playfair Display', serif;
-    font-size:52px;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero-img img{
-    width:100%;
-    border-radius:16px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
-}
-
-.section-title{
-    font-family:'Playfair Display', serif;
-    font-size:36px;
-    margin-bottom:25px;
-}
-
-/* VISI MISI TABLE */
-.vision-mission{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:0 25px;
-}
-
-.vision-mission td{
-    padding:30px;
-    border-radius:60px;
-    background:linear-gradient(135deg,#ffffff,#a73b46);
-    color:#4b0f16;
-    font-weight:500;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.vision-mission td strong{
-    font-size:18px;
-    font-weight:700;
-    display:block;
-    margin-bottom:10px;
-}
-
-/* CONTACT */
-.contact-section{
-    background:linear-gradient(135deg,#6d1a24,#9b2c38);
-    color:#fff;
-    border-radius:25px;
-    padding:60px;
-}
-
-.contact-section h2{
-    font-family:'Playfair Display', serif;
-    font-size:40px;
-    font-weight:700;
-}
-
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:14px;
-    margin-bottom:18px;
-    border:none;
-    border-radius:12px;
-}
-
-.contact-form button{
-    background:#fff;
-    color:#7a1b26;
-    padding:14px 25px;
-    border:none;
-    border-radius:30px;
-    font-weight:700;
-    cursor:pointer;
-}
-
 /* FOOTER */
 footer{
     background:#4b0f16;
     text-align:center;
     padding:18px;
     color:#f6eee6;
+}
+
+@media(max-width:900px){
+    header{padding:18px 25px;}
+    section{padding:70px 8%;}
+    .hero{flex-direction:column-reverse;text-align:center;}
 }
 </style>
 </head>
@@ -225,12 +183,12 @@ footer{
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a onclick="openContact()">Contact</a>
         <a class="login-btn" id="loginBtn" onclick="openLogin()">Login</a>
     </nav>
 </header>
 
-<!-- LOGIN -->
+<!-- LOGIN MODAL -->
 <div class="modal" id="loginModal">
     <div class="modal-box">
         <h2>Login</h2>
@@ -242,10 +200,7 @@ footer{
 
         <div class="form-group">
             <label>Password</label>
-            <div class="password-wrapper">
-                <input type="password" id="password">
-                <span class="toggle-pass" onclick="togglePassword()">Show</span>
-            </div>
+            <input type="password" id="password">
         </div>
 
         <button onclick="saveLogin()">Masuk</button>
@@ -253,10 +208,38 @@ footer{
     </div>
 </div>
 
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+    <div class="modal-box">
+        <h2>Contact Us</h2>
+
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email">
+        </div>
+
+        <div class="form-group">
+            <label>Feedback</label>
+            <textarea rows="4"></textarea>
+        </div>
+
+        <button>Kirim</button>
+        <div class="close-btn" onclick="closeContact()">Tutup</div>
+    </div>
+</div>
+
 <section id="home" class="hero">
     <div class="hero-text">
         <h1>Perisa's Library</h1>
-        <p>Ruang literasi digital untuk dokumentasi akademik, refleksi personal, dan eksplorasi ide.</p>
+        <p>
+            Sebuah ruang literasi digital untuk dokumentasi akademik,
+            refleksi personal, dan eksplorasi ide serta pengetahuan.
+        </p>
     </div>
     <div class="hero-img">
         <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
@@ -265,33 +248,21 @@ footer{
 
 <section id="about">
     <h2 class="section-title">About Us</h2>
-    <table class="vision-mission">
-        <tr>
-            <td>
-                <strong>Visi</strong>
-                Menjadi ruang literasi digital yang elegan, inspiratif, dan bermanfaat bagi pengembangan intelektual.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Misi</strong>
-                • Menyediakan dokumentasi akademik yang terstruktur<br>
-                • Membagikan refleksi personal yang inspiratif<br>
-                • Mengembangkan ruang diskusi dan eksplorasi ide
-            </td>
-        </tr>
-    </table>
-</section>
 
-<section id="contact">
-    <div class="contact-section">
-        <h2>Contact Us</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Nama Anda">
-            <input type="email" placeholder="Email Anda">
-            <textarea placeholder="Tulis feedback atau pesan Anda..."></textarea>
-            <button type="submit">Kirim Feedback</button>
-        </form>
+    <div class="vm-container">
+        <div class="vm-box">
+            <h3>Visi</h3>
+            <p>Menjadi ruang literasi digital yang elegan dan inspiratif.</p>
+        </div>
+
+        <div class="vm-box">
+            <h3>Misi</h3>
+            <p>
+                • Menyediakan dokumentasi akademik<br>
+                • Membagikan refleksi personal<br>
+                • Mengembangkan eksplorasi ide
+            </p>
+        </div>
     </div>
 </section>
 
@@ -303,24 +274,22 @@ footer{
 function openLogin(){
     document.getElementById("loginModal").style.display="flex";
 }
-
 function closeLogin(){
     document.getElementById("loginModal").style.display="none";
 }
-
-function togglePassword(){
-    let pass = document.getElementById("password");
-    pass.type = pass.type === "password" ? "text" : "password";
-}
-
 function saveLogin(){
-    let fname = document.getElementById("fname").value;
-    if(fname===""){alert("Isi nama dulu");return;}
+    let fname=document.getElementById("fname").value;
+    if(fname===""){alert("Isi nama dulu 😊");return;}
     localStorage.setItem("username", fname);
     document.getElementById("loginBtn").innerText="Hi, "+fname+" 👋";
     closeLogin();
 }
-
+function openContact(){
+    document.getElementById("contactModal").style.display="flex";
+}
+function closeContact(){
+    document.getElementById("contactModal").style.display="none";
+}
 window.onload=function(){
     let name=localStorage.getItem("username");
     if(name){

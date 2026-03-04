@@ -3,153 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perisa's Library</title>
+<title>Perisa Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);color:#3a1b1f;}
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#fafafa;
+scroll-behavior:smooth;
+}
 
 header{
-background:linear-gradient(90deg,#4b0f16,#7a1b26);
-padding:18px 60px;
+background:linear-gradient(135deg,#800000,#a83232);
+color:white;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
-.logo{
+header h1{
 font-family:'Playfair Display',serif;
-font-size:26px;
-font-weight:700;
-background:linear-gradient(90deg,#f6eee6,#7a1b26);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+margin:0;
 }
 
 nav a{
-margin-left:20px;
+color:white;
 text-decoration:none;
-color:#f6eee6;
+margin-left:20px;
 font-weight:500;
 cursor:pointer;
 }
 
-section{padding:70px 12%;}
+section{
+padding:60px 40px;
+}
+
+.hidden{display:none;}
 
 .hero{
-display:flex;
-align-items:center;
-gap:40px;
-flex-wrap:wrap;
+text-align:center;
 }
 
-.hero-text{flex:1;}
-.hero-text h1{font-family:'Playfair Display',serif;font-size:38px;}
-
-.hero-img{flex:1;text-align:center;}
-.hero-img img{
-width:65%;
-max-width:300px;
-border-radius:12px;
+.hero img{
+width:180px;
+border-radius:10px;
 }
 
-/* VISI MISI */
-.vm-box{
-background:linear-gradient(135deg,#ffffff,#b44a54);
-padding:18px 25px;
-border-radius:30px;
-margin-bottom:15px;
-box-shadow:0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* SEARCH */
-.search-box input{
+.about-table{
 width:100%;
-padding:12px;
-border-radius:12px;
-border:1px solid #ccc;
-margin-bottom:20px;
+border-spacing:20px;
 }
 
-/* BOOK */
-.book-list{
+.about-table td{
+background:linear-gradient(145deg,#ffffff,#f3dede);
+padding:20px;
+border-radius:40px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+vertical-align:top;
+width:50%;
+}
+
+.book-container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:20px;
+margin-top:20px;
 }
 
 .book{
-background:#fff;
-padding:18px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-cursor:pointer;
-transition:0.3s;
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
 }
-.book:hover{transform:translateY(-5px);}
 
-/* MODAL */
+.book img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:8px;
+}
+
+input,select{
+padding:8px;
+margin:5px 0;
+width:100%;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#800000;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+margin-top:5px;
+}
+
+button:hover{
+background:#a83232;
+}
+
+footer{
+background:#111;
+color:white;
+padding:30px 40px;
+text-align:center;
+}
+
+.footer-title{
+color:#a83232;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.footer-contact{
+margin-top:10px;
+}
+
+.footer-contact img{
+width:16px;
+vertical-align:middle;
+margin-right:5px;
+}
+
+/* Modal Contact */
 .modal{
 display:none;
 position:fixed;
-inset:0;
-background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
 justify-content:center;
 align-items:center;
 }
+
 .modal-content{
-background:#fff;
+background:linear-gradient(145deg,#fff,#f8e5e5);
 padding:30px;
-border-radius:15px;
+border-radius:20px;
+width:90%;
 max-width:400px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* FOUNDER PAGE */
-#founderPage{display:none;}
+.modal-content h2{
+color:#800000;
+font-weight:700;
+}
 
-.profile{
+.profile-container{
 display:flex;
-align-items:center;
-gap:60px;
 flex-wrap:wrap;
+gap:40px;
+align-items:center;
 }
 
-.profile-text{flex:1;}
-.profile-text h1{
-font-family:'Playfair Display',serif;
-font-size:34px;
+.profile-text{
+flex:1;
+}
+
+.profile-text h2{
+font-size:28px;
 margin-bottom:5px;
 }
-.profile-text h3{color:#7a1b26;margin-top:0;}
 
-.profile-img{flex:1;text-align:center;}
-.profile-img img{
-width:250px;
-border-radius:8px;
-padding:6px;
-background:linear-gradient(135deg,#7a1b26,#f6eee6);
+.profile-text h4{
+margin-top:0;
+font-weight:400;
+color:#555;
 }
 
-.link{
-color:#7a1b26;
-font-weight:600;
-text-decoration:none;
-margin-right:15px;
-}
-
-/* FOOTER */
-footer{
-background:#4b0f16;
-color:#f6eee6;
-padding:25px;
+.profile-image{
+flex:1;
 text-align:center;
-font-size:14px;
 }
 
-@media(max-width:900px){
-.hero,.profile{flex-direction:column;text-align:center;}
+.profile-image img{
+width:250px;
+border-radius:10px;
+padding:5px;
+background:linear-gradient(135deg,#800000,#ffffff);
+}
+
+.media iframe{
+width:100%;
+max-width:600px;
+height:315px;
+border-radius:10px;
 }
 </style>
 </head>
@@ -157,143 +206,178 @@ font-size:14px;
 <body>
 
 <header>
-<div class="logo">Perisa's Library</div>
+<h1>Perisa Library</h1>
 <nav>
-<a onclick="showHome()">Home</a>
-<a href="#about">About</a>
-<a href="#collection">Collection</a>
-<a onclick="showFounder()">Founder</a>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('about')">About</a>
+<a onclick="showSection('books')">Books</a>
+<a onclick="showSection('media')">Media</a>
+<a onclick="showSection('login')">Login</a>
+<a onclick="showSection('profile')">Founder</a>
+<a onclick="openModal()">Contact Us</a>
 </nav>
 </header>
 
-<!-- MAIN CONTENT -->
-<div id="mainPage">
-
-<section class="hero">
-<div class="hero-text">
-<h1>Perisa's Library</h1>
-<p>Ruang literasi digital untuk dokumentasi akademik dan eksplorasi ide.</p>
-</div>
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
+<!-- HOME -->
+<section id="home">
+<div class="hero">
+<h2>Selamat Datang di Perisa Library</h2>
+<p>Website perpustakaan digital yang memudahkan akses informasi kapan saja.</p>
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
 </div>
 </section>
 
-<section id="about">
+<!-- ABOUT -->
+<section id="about" class="hidden">
 <h2>About Us</h2>
-<div class="vm-box">
-<strong>Visi</strong>
-<p>Menjadi ruang literasi digital yang elegan dan inspiratif.</p>
-</div>
-<div class="vm-box">
-<strong>Misi</strong>
-<p>Menyediakan dokumentasi akademik, refleksi personal, dan eksplorasi ide.</p>
-</div>
+<table class="about-table">
+<tr>
+<td>
+<h3>Visi</h3>
+<p>Menjadi perpustakaan digital yang modern, inovatif, dan mudah diakses oleh semua kalangan.</p>
+</td>
+<td>
+<h3>Misi</h3>
+<p>Menyediakan koleksi buku berkualitas, layanan informasi cepat, serta mendukung literasi digital.</p>
+</td>
+</tr>
+</table>
 </section>
 
-<section id="collection">
+<!-- BOOKS -->
+<section id="books" class="hidden">
 <h2>Koleksi Buku</h2>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Cari judul atau kategori..." onkeyup="searchBook()">
+<input type="text" id="search" placeholder="Cari judul atau penulis..." onkeyup="searchBook()">
+<select id="categoryFilter" onchange="searchBook()">
+<option value="">Semua Kategori</option>
+<option value="Novel">Novel</option>
+<option value="Teknologi">Teknologi</option>
+</select>
+
+<div class="book-container" id="bookList">
+<div class="book" data-title="Laskar Pelangi" data-category="Novel">
+<img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c">
+<h4>Laskar Pelangi</h4>
+<p>Novel</p>
 </div>
 
-<div class="book-list">
-
-<div class="book" onclick="showDetail('Dasar-Dasar Ilmu Perpustakaan','Konsep dasar perpustakaan modern.')">
-<strong>Dasar-Dasar Ilmu Perpustakaan</strong>
-<p>Akademik</p>
-</div>
-
-<div class="book" onclick="showDetail('Literasi Digital','Panduan literasi era digital.')">
-<strong>Literasi Digital</strong>
+<div class="book" data-title="Belajar JavaScript" data-category="Teknologi">
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4">
+<h4>Belajar JavaScript</h4>
 <p>Teknologi</p>
 </div>
-
-<div class="book" onclick="showDetail('Manajemen Informasi Modern','Strategi pengelolaan informasi.')">
-<strong>Manajemen Informasi Modern</strong>
-<p>Manajemen</p>
 </div>
 
+<h3>Tambah Buku</h3>
+<input type="text" id="newTitle" placeholder="Judul Buku">
+<input type="text" id="newCategory" placeholder="Kategori">
+<button onclick="addBook()">Tambah Buku</button>
+</section>
+
+<!-- MEDIA -->
+<section id="media" class="hidden">
+<h2>Media Edukasi</h2>
+<div class="media">
+<iframe src="https://www.youtube.com/embed/Z1Yd7upQsXY" allowfullscreen></iframe>
 </div>
 </section>
 
-</div>
+<!-- LOGIN -->
+<section id="login" class="hidden">
+<h2>Login</h2>
+<input type="text" placeholder="Nama Lengkap">
+<input type="text" placeholder="Nomor Telepon">
+<input type="password" placeholder="Password">
+<button>Masuk</button>
+</section>
 
-<!-- FOUNDER PAGE -->
-<div id="founderPage">
-<section>
-<button onclick="showHome()">← Kembali</button>
-
-<div class="profile">
+<!-- PROFILE FOUNDER -->
+<section id="profile" class="hidden">
+<div class="profile-container">
 <div class="profile-text">
-<h1>Nazwa Perisa Nasution</h1>
-<h3>S1 Perpustakaan dan Sains Informasi</h3>
-
+<h2>Nazwa Perisa Nasution</h2>
+<h4>S1 Perpustakaan dan Sains Informasi</h4>
+<p>Perisa Library didirikan sebagai bentuk inovasi dalam mendukung literasi digital dan mempermudah akses informasi bagi mahasiswa dan masyarakat umum.</p>
 <p>
-Perisa's Library didirikan sebagai ruang literasi digital
-untuk pengembangan dokumentasi akademik dan eksplorasi ilmu.
+<a href="#">Link CV</a> | 
+<a href="#">Instagram</a>
 </p>
-
-<p>
-<a href="#" class="link">Link CV</a>
-<a href="#" class="link">Instagram</a>
-</p>
-
 </div>
-
-<div class="profile-img">
-<img src="https://via.placeholder.com/300x300.png?text=Foto+Nazwa">
+<div class="profile-image">
+<img src="https://via.placeholder.com/250">
 </div>
 </div>
 </section>
-</div>
 
-<!-- MODAL -->
-<div class="modal" id="bookModal">
-<div class="modal-content">
-<h3 id="modalTitle"></h3>
-<p id="modalDesc"></p>
-<button onclick="closeModal()">Tutup</button>
-</div>
-</div>
-
+<!-- FOOTER -->
 <footer>
-📧 Email: nazwaperisa010205@gmail.com <br>
-📞 No Telp: 085378245563 <br><br>
-© 2026 Perisa's Library
+<div class="footer-title">Perisa Library 2026</div>
+<div class="footer-contact">
+<p><img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png"/> nazwaperisa010205@gmail.com</p>
+<p><img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png"/> 085378245563</p>
+</div>
 </footer>
 
+<!-- MODAL CONTACT -->
+<div class="modal" id="contactModal">
+<div class="modal-content">
+<h2>Contact Us</h2>
+<input type="text" placeholder="Nama">
+<input type="email" placeholder="Email">
+<textarea placeholder="Tulis feedback..." style="width:100%;height:80px;border-radius:6px;padding:8px;"></textarea>
+<button>Kirim Feedback</button>
+<button onclick="closeModal()" style="background:gray;">Tutup</button>
+</div>
+</div>
+
 <script>
-function searchBook(){
-let input=document.getElementById("searchInput").value.toLowerCase();
-let books=document.getElementsByClassName("book");
-for(let i=0;i<books.length;i++){
-let text=books[i].innerText.toLowerCase();
-books[i].style.display=text.includes(input)?"block":"none";
-}
+function showSection(id){
+document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
 }
 
-function showDetail(title,desc){
-document.getElementById("modalTitle").innerText=title;
-document.getElementById("modalDesc").innerText=desc;
-document.getElementById("bookModal").style.display="flex";
+function openModal(){
+document.getElementById("contactModal").style.display="flex";
 }
 
 function closeModal(){
-document.getElementById("bookModal").style.display="none";
+document.getElementById("contactModal").style.display="none";
 }
 
-function showFounder(){
-document.getElementById("mainPage").style.display="none";
-document.getElementById("founderPage").style.display="block";
-window.scrollTo(0,0);
+function searchBook(){
+let input=document.getElementById("search").value.toLowerCase();
+let category=document.getElementById("categoryFilter").value;
+let books=document.querySelectorAll(".book");
+
+books.forEach(book=>{
+let title=book.dataset.title.toLowerCase();
+let cat=book.dataset.category;
+if((title.includes(input)) && (category==="" || cat===category)){
+book.style.display="block";
+}else{
+book.style.display="none";
+}
+});
 }
 
-function showHome(){
-document.getElementById("founderPage").style.display="none";
-document.getElementById("mainPage").style.display="block";
-window.scrollTo(0,0);
+function addBook(){
+let title=document.getElementById("newTitle").value;
+let category=document.getElementById("newCategory").value;
+
+let container=document.getElementById("bookList");
+let div=document.createElement("div");
+div.className="book";
+div.setAttribute("data-title",title);
+div.setAttribute("data-category",category);
+
+div.innerHTML=`
+<img src="https://via.placeholder.com/150">
+<h4>${title}</h4>
+<p>${category}</p>
+`;
+
+container.appendChild(div);
 }
 </script>
 

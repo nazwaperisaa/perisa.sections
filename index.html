@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:'Poppins', sans-serif;scroll-behavior:smooth;}
+*{box-sizing:border-box;font-family:'Poppins', sans-serif;}
 
 body{
     margin:0;
@@ -16,10 +16,9 @@ body{
     color:#3a1b1f;
 }
 
-/* HEADER */
 header{
     background:linear-gradient(90deg,#4b0f16,#7a1b26);
-    padding:18px 50px;
+    padding:20px 60px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -27,135 +26,30 @@ header{
 
 .logo{
     font-family:'Playfair Display', serif;
-    font-size:26px;
+    font-size:30px;
     font-weight:700;
-    background:linear-gradient(90deg,#f6eee6,#b76e79);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav a{
-    margin-left:20px;
-    text-decoration:none;
-    color:#f6eee6;
-    font-weight:500;
-}
-
-.login-btn{
-    padding:7px 14px;
-    border-radius:20px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
-    cursor:pointer;
-}
-
-/* SECTION (diperkecil biar gak besar) */
-section{
-    padding:60px 8%;
-}
-
-/* HERO */
-.hero{
-    display:flex;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.hero-text{flex:1;}
-
-.hero-text h1{
-    font-family:'Playfair Display', serif;
-    font-size:44px;
     background:linear-gradient(90deg,#f6eee6,#7a1b26);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
-.hero-img img{
-    width:100%;
-    border-radius:14px;
-}
-
-/* PROFILE */
-.profile{text-align:center;}
-
-.profile-box{
-    max-width:650px;
-    margin:25px auto;
-    background:rgba(255,255,255,0.65);
-    padding:25px;
-    border-radius:20px;
-}
-
-/* COLLECTION */
-.search-box{
-    max-width:450px;
-    margin:0 auto 25px;
-}
-
-.search-box input{
-    width:100%;
-    padding:12px;
-    border-radius:12px;
-    border:none;
-}
-
-.book-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:20px;
-}
-
-.book{
-    background:rgba(255,255,255,0.6);
-    border-radius:14px;
-    padding:12px;
-    text-align:center;
-}
-
-.book img{
-    width:100%;
-    border-radius:10px;
-}
-
-/* CONTACT */
-.contact{text-align:center;}
-
-.feedback-box{
-    max-width:480px;
-    margin:35px auto 0;
-    background:linear-gradient(135deg,#7a1b26,#4b0f16);
-    padding:30px;
-    border-radius:35px;
-    color:#fff;
-}
-
-.feedback-box input,
-.feedback-box textarea{
-    width:100%;
-    padding:12px;
-    border-radius:30px;
-    border:none;
-    margin-bottom:12px;
-}
-
-.feedback-box textarea{
-    resize:none;
-}
-
-.feedback-box button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:30px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
+nav a{
+    margin-left:22px;
+    text-decoration:none;
+    color:#f6eee6;
+    font-weight:500;
     cursor:pointer;
 }
 
-/* MODAL */
+.login-btn{
+    padding:8px 16px;
+    border-radius:20px;
+    background:#f6eee6;
+    color:#7a1b26;
+    font-weight:600;
+}
+
+/* MODAL LOGIN */
 .modal{
     display:none;
     position:fixed;
@@ -167,59 +61,94 @@ section{
 }
 
 .modal-box{
-    background:#fff;
-    padding:25px 30px;
+    background:linear-gradient(135deg,#fff,#f6eee6);
+    padding:30px 35px;
     border-radius:18px;
     width:100%;
-    max-width:380px;
+    max-width:420px;
+    box-shadow:0 15px 45px rgba(0,0,0,0.35);
 }
 
-.tab-menu{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin-bottom:15px;
-    font-weight:600;
-    cursor:pointer;
+.modal-box h2{
+    margin-top:0;
+    text-align:center;
+    font-family:'Playfair Display', serif;
 }
 
-.active-tab{
-    border-bottom:2px solid #7a1b26;
-    color:#7a1b26;
-}
+.form-group{margin-bottom:14px;}
 
-.form-group{margin-bottom:12px;}
+.form-group label{
+    font-size:13px;
+    font-weight:500;
+}
 
 .form-group input{
     width:100%;
-    padding:10px;
+    padding:10px 12px;
     border-radius:10px;
     border:1px solid #ccc;
+    outline:none;
 }
 
 .modal-box button{
     width:100%;
-    padding:10px;
+    padding:12px;
     border:none;
     border-radius:12px;
-    background:#7a1b26;
+    background:linear-gradient(90deg,#7a1b26,#4b0f16);
     color:#fff;
     font-weight:600;
     cursor:pointer;
+    margin-top:10px;
 }
 
 .close-btn{
     text-align:center;
     margin-top:10px;
+    font-size:13px;
     cursor:pointer;
     color:#7a1b26;
+}
+
+/* SECTION */
+section{padding:90px 12%;}
+
+.hero{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-text{flex:1;}
+.hero-text h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    background:linear-gradient(90deg,#f6eee6,#7a1b26);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{line-height:1.9;}
+
+.hero-img{flex:1;}
+.hero-img img{
+    width:100%;
+    border-radius:14px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
 footer{
     background:#4b0f16;
     text-align:center;
-    padding:15px;
+    padding:18px;
     color:#f6eee6;
+}
+
+@media(max-width:900px){
+    header{padding:18px 25px;}
+    section{padding:70px 8%;}
+    .hero{flex-direction:column-reverse;text-align:center;}
 }
 </style>
 </head>
@@ -227,166 +156,91 @@ footer{
 <body>
 
 <header>
-<div class="logo">Perisa's Library</div>
-<nav>
-<a href="#home">Home</a>
-<a href="#profile">Profile</a>
-<a href="#collection">Collection</a>
-<a href="#contact">Contact</a>
-<span class="login-btn" id="loginBtn" onclick="openLogin()">Login</span>
-</nav>
+    <div class="logo">Perisa's Library</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#collection">Collection</a>
+        <a href="#media">Media</a>
+        <a class="login-btn" id="loginBtn" onclick="openLogin()">Login</a>
+    </nav>
 </header>
 
-<!-- LOGIN MODAL -->
+<!-- MODAL LOGIN -->
 <div class="modal" id="loginModal">
-<div class="modal-box">
+    <div class="modal-box">
+        <h2>Login</h2>
 
-<div class="tab-menu">
-<span id="loginTab" onclick="showLogin()" class="active-tab">Login</span>
-<span id="signupTab" onclick="showSignup()">Sign Up</span>
-</div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="Masukkan nama depan">
+        </div>
 
-<div id="loginForm">
-<div class="form-group">
-<input type="email" id="loginEmail" placeholder="Email">
-</div>
-<div class="form-group">
-<input type="password" id="loginPassword" placeholder="Password">
-</div>
-<button onclick="loginUser()">Masuk</button>
-</div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="Masukkan nama belakang">
+        </div>
 
-<div id="signupForm" style="display:none;">
-<div class="form-group">
-<input type="text" id="signupName" placeholder="Nama">
-</div>
-<div class="form-group">
-<input type="email" id="signupEmail" placeholder="Email">
-</div>
-<div class="form-group">
-<input type="password" id="signupPassword" placeholder="Password">
-</div>
-<div class="form-group">
-<input type="password" id="signupConfirm" placeholder="Masukkan kembali password">
-</div>
-<button onclick="registerUser()">Daftar</button>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Masukkan email">
+        </div>
+
+        <div class="form-group">
+            <label>Nomor Telepon</label>
+            <input type="tel" id="phone" placeholder="Masukkan nomor telepon">
+        </div>
+
+        <button onclick="saveLogin()">Masuk</button>
+        <div class="close-btn" onclick="closeLogin()">Tutup</div>
+    </div>
 </div>
 
-<div class="close-btn" onclick="closeLogin()">Tutup</div>
-</div>
-</div>
-
-<!-- HERO -->
 <section id="home" class="hero">
-<div class="hero-text">
-<h1>Perisa's Library</h1>
-<p>Ruang literasi digital untuk dokumentasi akademik dan eksplorasi ide.</p>
-</div>
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
-</div>
+    <div class="hero-text">
+        <h1>Perisa's Library</h1>
+        <p>
+            Sebuah ruang literasi digital yang bisa jadi tempat berbagi dokumentasi akademik, 
+            refleksi personal, serta eksplorasi ide dan pengetahuan.
+        </p>
+    </div>
+    <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
+    </div>
 </section>
 
-<!-- PROFILE -->
-<section id="profile" class="profile">
-<h2>Visi & Misi</h2>
-<div class="profile-box">
-<h3>Visi</h3>
-<p>Menjadi ruang literasi digital yang inspiratif dan inovatif dalam mendukung perkembangan akademik dan kreativitas.</p>
-
-<h3>Misi</h3>
-<p>
-1. Menyediakan dokumentasi akademik yang mudah diakses.<br>
-2. Mengembangkan budaya literasi digital di kalangan mahasiswa.<br>
-3. Menjadi wadah berbagi ide dan gagasan kreatif.
-</p>
-</div>
-</section>
-
-<!-- COLLECTION -->
-<section id="collection">
-<h2 style="text-align:center;">Digital Book Collection</h2>
-<div class="search-box">
-<input type="text" id="search" placeholder="Cari judul buku..." onkeyup="searchBooks()">
-</div>
-
-<div class="book-grid">
-<div class="book">
-<img src="https://covers.openlibrary.org/b/id/10523357-L.jpg">
-<h4>Pengantar Ilmu Perpustakaan</h4>
-<p>Sulistyo Basuki</p>
-</div>
-
-<div class="book">
-<img src="https://covers.openlibrary.org/b/id/10507859-L.jpg">
-<h4>Literasi Digital</h4>
-<p>Paul Gilster</p>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<div class="feedback-box">
-<input type="text" placeholder="Nama">
-<input type="email" placeholder="Email">
-<textarea rows="3" placeholder="Feedback"></textarea>
-<button>Kirim</button>
-</div>
-</section>
-
-<footer>© 2026 Perisa’s Library</footer>
+<footer>
+    © 2026 Perisa’s Library
+</footer>
 
 <script>
-function openLogin(){loginModal.style.display="flex";}
-function closeLogin(){loginModal.style.display="none";}
-
-function showLogin(){
-loginForm.style.display="block";
-signupForm.style.display="none";
-loginTab.classList.add("active-tab");
-signupTab.classList.remove("active-tab");
+function openLogin(){
+    document.getElementById("loginModal").style.display="flex";
 }
 
-function showSignup(){
-loginForm.style.display="none";
-signupForm.style.display="block";
-signupTab.classList.add("active-tab");
-loginTab.classList.remove("active-tab");
+function closeLogin(){
+    document.getElementById("loginModal").style.display="none";
 }
 
-function registerUser(){
-if(!signupName.value||!signupEmail.value||!signupPassword.value){alert("Semua data wajib diisi 😊");return;}
-if(signupPassword.value!==signupConfirm.value){alert("Password tidak cocok!");return;}
-localStorage.setItem("userName",signupName.value);
-localStorage.setItem("userEmail",signupEmail.value);
-localStorage.setItem("userPassword",signupPassword.value);
-alert("Berhasil daftar! Silakan login ✨");
-showLogin();
+function saveLogin(){
+    let fname = document.getElementById("fname").value;
+
+    if(fname === ""){
+        alert("Isi minimal nama depan ya 😊");
+        return;
+    }
+
+    localStorage.setItem("username", fname);
+    document.getElementById("loginBtn").innerText = "Hi, " + fname + " 👋";
+    closeLogin();
 }
 
-function loginUser(){
-if(loginEmail.value===localStorage.getItem("userEmail") &&
-loginPassword.value===localStorage.getItem("userPassword")){
-loginBtn.innerText="Hi, "+localStorage.getItem("userName")+" 👋";
-localStorage.setItem("username",localStorage.getItem("userName"));
-closeLogin();
-}else{alert("Email atau password salah!");}
-}
-
-window.onload=function(){
-let name=localStorage.getItem("username");
-if(name){loginBtn.innerText="Hi, "+name+" 👋";}
-}
-
-function searchBooks(){
-let input=search.value.toLowerCase();
-let books=document.querySelectorAll(".book");
-books.forEach(book=>{
-let title=book.querySelector("h4").innerText.toLowerCase();
-book.style.display=title.includes(input)?"":"none";
-});
+// cek kalau sudah pernah login
+window.onload = function(){
+    let name = localStorage.getItem("username");
+    if(name){
+        document.getElementById("loginBtn").innerText = "Hi, " + name + " 👋";
+    }
 }
 </script>
 

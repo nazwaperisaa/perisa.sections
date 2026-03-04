@@ -5,173 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perisa's Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:'Poppins', sans-serif;}
+*{box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);color:#3a1b1f;}
 
-body{
-    margin:0;
-    background:linear-gradient(135deg,#5a0f18,#f6eee6);
-    color:#3a1b1f;
-}
-
-/* HEADER */
 header{
-    background:linear-gradient(90deg,#4b0f16,#7a1b26);
-    padding:18px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+background:linear-gradient(90deg,#4b0f16,#7a1b26);
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    font-family:'Playfair Display', serif;
-    font-size:28px;
-    font-weight:700;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-family:'Playfair Display',serif;
+font-size:26px;
+font-weight:700;
+background:linear-gradient(90deg,#f6eee6,#7a1b26);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 nav a{
-    margin-left:22px;
-    text-decoration:none;
-    color:#f6eee6;
-    font-weight:500;
-    cursor:pointer;
+margin-left:20px;
+text-decoration:none;
+color:#f6eee6;
+font-weight:500;
+cursor:pointer;
 }
 
-.login-btn{
-    padding:7px 15px;
-    border-radius:20px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
-}
-
-/* SECTION */
-section{padding:80px 12%;}
+section{padding:70px 12%;}
 
 .hero{
-    display:flex;
-    align-items:center;
-    gap:50px;
-    flex-wrap:wrap;
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
 .hero-text{flex:1;}
-.hero-text h1{
-    font-family:'Playfair Display', serif;
-    font-size:48px;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:38px;}
 
+.hero-img{flex:1;text-align:center;}
 .hero-img img{
-    width:100%;
-    border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+width:65%;
+max-width:300px;
+border-radius:12px;
 }
 
-.section-title{
-    font-family:'Playfair Display', serif;
-    font-size:30px;
-    margin-bottom:25px;
-}
-
-/* VISI MISI VERTICAL */
-.vm-container{
-    max-width:650px;
-}
-
+/* VISI MISI */
 .vm-box{
-    background:linear-gradient(135deg,#ffffff,#b44a54);
-    padding:20px 30px;
-    border-radius:40px;
-    margin-bottom:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+background:linear-gradient(135deg,#ffffff,#b44a54);
+padding:18px 25px;
+border-radius:30px;
+margin-bottom:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
-.vm-box h3{
-    margin-top:0;
-    font-weight:700;
-    color:#4b0f16;
+/* SEARCH */
+.search-box input{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid #ccc;
+margin-bottom:20px;
 }
 
-.vm-box p{
-    margin:0;
-    font-size:14px;
+/* BOOK */
+.book-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
 }
 
-/* MODAL (LOGIN + CONTACT) */
+.book{
+background:#fff;
+padding:18px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+cursor:pointer;
+transition:0.3s;
+}
+.book:hover{transform:translateY(-5px);}
+
+/* MODAL */
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-    justify-content:center;
-    align-items:center;
-    z-index:999;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+.modal-content{
+background:#fff;
+padding:30px;
+border-radius:15px;
+max-width:400px;
 }
 
-.modal-box{
-    background:#fff;
-    padding:30px;
-    border-radius:18px;
-    width:100%;
-    max-width:420px;
-    box-shadow:0 15px 45px rgba(0,0,0,0.35);
+/* FOUNDER PAGE */
+#founderPage{display:none;}
+
+.profile{
+display:flex;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
 }
 
-.modal-box h2{
-    text-align:center;
-    font-family:'Playfair Display', serif;
+.profile-text{flex:1;}
+.profile-text h1{
+font-family:'Playfair Display',serif;
+font-size:34px;
+margin-bottom:5px;
+}
+.profile-text h3{color:#7a1b26;margin-top:0;}
+
+.profile-img{flex:1;text-align:center;}
+.profile-img img{
+width:250px;
+border-radius:8px;
+padding:6px;
+background:linear-gradient(135deg,#7a1b26,#f6eee6);
 }
 
-.form-group{margin-bottom:14px;}
-.form-group label{font-size:13px;font-weight:600;}
-.form-group input, .form-group textarea{
-    width:100%;
-    padding:10px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    outline:none;
-}
-
-.modal-box button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#7a1b26,#4b0f16);
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.close-btn{
-    text-align:center;
-    margin-top:10px;
-    font-size:13px;
-    cursor:pointer;
-    color:#7a1b26;
+.link{
+color:#7a1b26;
+font-weight:600;
+text-decoration:none;
+margin-right:15px;
 }
 
 /* FOOTER */
 footer{
-    background:#4b0f16;
-    text-align:center;
-    padding:18px;
-    color:#f6eee6;
+background:#4b0f16;
+color:#f6eee6;
+padding:25px;
+text-align:center;
+font-size:14px;
 }
 
 @media(max-width:900px){
-    header{padding:18px 25px;}
-    section{padding:70px 8%;}
-    .hero{flex-direction:column-reverse;text-align:center;}
+.hero,.profile{flex-direction:column;text-align:center;}
 }
 </style>
 </head>
@@ -179,122 +157,143 @@ footer{
 <body>
 
 <header>
-    <div class="logo">Perisa's Library</div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a onclick="openContact()">Contact</a>
-        <a class="login-btn" id="loginBtn" onclick="openLogin()">Login</a>
-    </nav>
+<div class="logo">Perisa's Library</div>
+<nav>
+<a onclick="showHome()">Home</a>
+<a href="#about">About</a>
+<a href="#collection">Collection</a>
+<a onclick="showFounder()">Founder</a>
+</nav>
 </header>
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
-    <div class="modal-box">
-        <h2>Login</h2>
+<!-- MAIN CONTENT -->
+<div id="mainPage">
 
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" id="fname">
-        </div>
-
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password">
-        </div>
-
-        <button onclick="saveLogin()">Masuk</button>
-        <div class="close-btn" onclick="closeLogin()">Tutup</div>
-    </div>
+<section class="hero">
+<div class="hero-text">
+<h1>Perisa's Library</h1>
+<p>Ruang literasi digital untuk dokumentasi akademik dan eksplorasi ide.</p>
 </div>
-
-<!-- CONTACT MODAL -->
-<div class="modal" id="contactModal">
-    <div class="modal-box">
-        <h2>Contact Us</h2>
-
-        <div class="form-group">
-            <label>Nama</label>
-            <input type="text">
-        </div>
-
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email">
-        </div>
-
-        <div class="form-group">
-            <label>Feedback</label>
-            <textarea rows="4"></textarea>
-        </div>
-
-        <button>Kirim</button>
-        <div class="close-btn" onclick="closeContact()">Tutup</div>
-    </div>
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
 </div>
-
-<section id="home" class="hero">
-    <div class="hero-text">
-        <h1>Perisa's Library</h1>
-        <p>
-            Sebuah ruang literasi digital untuk dokumentasi akademik,
-            refleksi personal, dan eksplorasi ide serta pengetahuan.
-        </p>
-    </div>
-    <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
-    </div>
 </section>
 
 <section id="about">
-    <h2 class="section-title">About Us</h2>
-
-    <div class="vm-container">
-        <div class="vm-box">
-            <h3>Visi</h3>
-            <p>Menjadi ruang literasi digital yang elegan dan inspiratif.</p>
-        </div>
-
-        <div class="vm-box">
-            <h3>Misi</h3>
-            <p>
-                • Menyediakan dokumentasi akademik<br>
-                • Membagikan refleksi personal<br>
-                • Mengembangkan eksplorasi ide
-            </p>
-        </div>
-    </div>
+<h2>About Us</h2>
+<div class="vm-box">
+<strong>Visi</strong>
+<p>Menjadi ruang literasi digital yang elegan dan inspiratif.</p>
+</div>
+<div class="vm-box">
+<strong>Misi</strong>
+<p>Menyediakan dokumentasi akademik, refleksi personal, dan eksplorasi ide.</p>
+</div>
 </section>
 
+<section id="collection">
+<h2>Koleksi Buku</h2>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari judul atau kategori..." onkeyup="searchBook()">
+</div>
+
+<div class="book-list">
+
+<div class="book" onclick="showDetail('Dasar-Dasar Ilmu Perpustakaan','Konsep dasar perpustakaan modern.')">
+<strong>Dasar-Dasar Ilmu Perpustakaan</strong>
+<p>Akademik</p>
+</div>
+
+<div class="book" onclick="showDetail('Literasi Digital','Panduan literasi era digital.')">
+<strong>Literasi Digital</strong>
+<p>Teknologi</p>
+</div>
+
+<div class="book" onclick="showDetail('Manajemen Informasi Modern','Strategi pengelolaan informasi.')">
+<strong>Manajemen Informasi Modern</strong>
+<p>Manajemen</p>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<!-- FOUNDER PAGE -->
+<div id="founderPage">
+<section>
+<button onclick="showHome()">← Kembali</button>
+
+<div class="profile">
+<div class="profile-text">
+<h1>Nazwa Perisa Nasution</h1>
+<h3>S1 Perpustakaan dan Sains Informasi</h3>
+
+<p>
+Perisa's Library didirikan sebagai ruang literasi digital
+untuk pengembangan dokumentasi akademik dan eksplorasi ilmu.
+</p>
+
+<p>
+<a href="#" class="link">Link CV</a>
+<a href="#" class="link">Instagram</a>
+</p>
+
+</div>
+
+<div class="profile-img">
+<img src="https://via.placeholder.com/300x300.png?text=Foto+Nazwa">
+</div>
+</div>
+</section>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="bookModal">
+<div class="modal-content">
+<h3 id="modalTitle"></h3>
+<p id="modalDesc"></p>
+<button onclick="closeModal()">Tutup</button>
+</div>
+</div>
+
 <footer>
-    © 2026 Perisa’s Library
+📧 Email: nazwaperisa010205@gmail.com <br>
+📞 No Telp: 085378245563 <br><br>
+© 2026 Perisa's Library
 </footer>
 
 <script>
-function openLogin(){
-    document.getElementById("loginModal").style.display="flex";
+function searchBook(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let books=document.getElementsByClassName("book");
+for(let i=0;i<books.length;i++){
+let text=books[i].innerText.toLowerCase();
+books[i].style.display=text.includes(input)?"block":"none";
 }
-function closeLogin(){
-    document.getElementById("loginModal").style.display="none";
 }
-function saveLogin(){
-    let fname=document.getElementById("fname").value;
-    if(fname===""){alert("Isi nama dulu 😊");return;}
-    localStorage.setItem("username", fname);
-    document.getElementById("loginBtn").innerText="Hi, "+fname+" 👋";
-    closeLogin();
+
+function showDetail(title,desc){
+document.getElementById("modalTitle").innerText=title;
+document.getElementById("modalDesc").innerText=desc;
+document.getElementById("bookModal").style.display="flex";
 }
-function openContact(){
-    document.getElementById("contactModal").style.display="flex";
+
+function closeModal(){
+document.getElementById("bookModal").style.display="none";
 }
-function closeContact(){
-    document.getElementById("contactModal").style.display="none";
+
+function showFounder(){
+document.getElementById("mainPage").style.display="none";
+document.getElementById("founderPage").style.display="block";
+window.scrollTo(0,0);
 }
-window.onload=function(){
-    let name=localStorage.getItem("username");
-    if(name){
-        document.getElementById("loginBtn").innerText="Hi, "+name+" 👋";
-    }
+
+function showHome(){
+document.getElementById("founderPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
+window.scrollTo(0,0);
 }
 </script>
 

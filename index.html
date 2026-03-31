@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perisa's Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
@@ -18,9 +18,15 @@ nav a{margin-left:20px;color:#fff;text-decoration:none;cursor:pointer;}
 section{padding:80px 12%;display:none;}
 .active{display:block;}
 
-.hero{text-align:center;color:#fff;}
-.hero h1{font-family:'Playfair Display';font-size:45px;}
-
+/* HOME */
+.hero{text-align:center;}
+.hero h1{
+    font-family:'Montserrat', sans-serif;
+    font-size:48px;
+    background:linear-gradient(90deg,#ff7a7a,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 .search-box{max-width:400px;margin:20px auto;}
 .search-box input{width:100%;padding:14px;border-radius:25px;border:none;}
 
@@ -29,10 +35,22 @@ section{padding:80px 12%;display:none;}
 .book img{width:100%;height:180px;object-fit:cover;border-radius:12px;}
 .book:hover{transform:translateY(-5px);} 
 
+/* PROFILE */
+.profile{text-align:center;}
+.card-container{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
+.card{width:220px;padding:20px;border-radius:50px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;cursor:pointer;transition:0.3s;}
+.card:hover{transform:scale(1.1);} 
+.card.active{background:linear-gradient(135deg,#4b0f16,#ff7a7a);} 
+
 /* EVENT */
 .event-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
 .event{background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;padding:20px;border-radius:20px;transition:0.3s;}
 .event:hover{transform:scale(1.05);} 
+
+/* ADMIN */
+.admin{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:center;}
+.admin img{width:220px;height:220px;border-radius:20px;object-fit:cover;background:#ccc;}
+.link-btn{padding:10px 18px;border-radius:30px;background:#7a1b26;color:#fff;text-decoration:none;margin-right:10px;}
 
 /* CONTACT */
 .contact{text-align:center;background:linear-gradient(135deg,#7a1b26,#ff7a7a);color:#fff;}
@@ -40,12 +58,12 @@ section{padding:80px 12%;display:none;}
 .feedback-box input,.feedback-box textarea{width:100%;margin:10px 0;padding:12px;border-radius:12px;border:1px solid #ccc;}
 .feedback-box button{width:100%;padding:12px;border:none;border-radius:25px;background:linear-gradient(90deg,#7a1b26,#ff7a7a);color:#fff;font-weight:600;}
 
-/* MODAL LOGIN */
+/* MODAL */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
 .modal-box{background:#fff;padding:25px;border-radius:15px;width:350px;}
 .modal-box input{width:100%;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #ccc;}
 .modal-box button{width:100%;padding:10px;background:#7a1b26;color:#fff;border:none;border-radius:10px;}
-.switch{margin-top:10px;text-align:center;cursor:pointer;color:#7a1b26;}
+.switch{text-align:center;margin-top:10px;cursor:pointer;color:#7a1b26;}
 
 footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </style>
@@ -57,7 +75,10 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <div class="logo">Perisa's Library</div>
 <nav>
 <a onclick="showSection('home')">Home</a>
+<a onclick="showSection('profile')">Profile</a>
+<a onclick="showSection('collection')">Collection</a>
 <a onclick="showSection('event')">Event</a>
+<a onclick="showSection('admin')">Admin</a>
 <a onclick="showSection('contact')">Contact</a>
 <a onclick="openModal()">Login</a>
 </nav>
@@ -74,7 +95,27 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <div class="book"><img src="https://picsum.photos/200/300?1"><p>AI & Future Tech</p></div>
 <div class="book"><img src="https://picsum.photos/200/300?2"><p>Digital Marketing</p></div>
 <div class="book"><img src="https://picsum.photos/200/300?3"><p>UI UX Modern</p></div>
+<div class="book"><img src="https://picsum.photos/200/300?4"><p>Startup Mindset</p></div>
 </div>
+</div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+<h2 style="text-align:center">Profile</h2>
+<p style="text-align:center">Perisa's Library adalah perpustakaan digital modern.</p>
+<div class="card-container">
+<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital inovatif</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menyediakan akses informasi modern</p></div>
+</div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+<h2 style="text-align:center">Collection</h2>
+<div class="book-grid">
+<div class="book"><img src="https://picsum.photos/200/300?5"><p>Cyber Security</p></div>
+<div class="book"><img src="https://picsum.photos/200/300?6"><p>Data Science</p></div>
 </div>
 </section>
 
@@ -82,9 +123,22 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <section id="event">
 <h2 style="text-align:center">Library Events</h2>
 <div class="event-grid">
-<div class="event"><h3>Book Talk</h3><p>Diskusi buku seru bareng mahasiswa</p></div>
-<div class="event"><h3>Creative Writing</h3><p>Workshop menulis kreatif</p></div>
-<div class="event"><h3>Digital Literacy</h3><p>Belajar teknologi & informasi</p></div>
+<div class="event"><h3>Book Talk</h3><p>Diskusi buku santai</p></div>
+<div class="event"><h3>Creative Writing</h3><p>Workshop menulis</p></div>
+<div class="event"><h3>Digital Literacy</h3><p>Belajar teknologi</p></div>
+</div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin">
+<h2 style="text-align:center">About Founder</h2>
+<div class="admin">
+<img src="">
+<div>
+<p>Mahasiswa S1 Ilmu Perpustakaan semester 6 USU</p>
+<a href="#" class="link-btn">CV</a>
+<a href="https://www.instagram.com/nazwanasutionn/?utm_source=ig_web_button_share_sheet" target="_blank" class="link-btn">Instagram</a>
+</div>
 </div>
 </section>
 
@@ -99,9 +153,9 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </div>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL LOGIN/REGISTER -->
 <div class="modal" id="modal">
-<div class="modal-box" id="formBox">
+<div class="modal-box">
 <h3 id="formTitle">Login</h3>
 <div id="formContent"></div>
 <button onclick="submitForm()">Submit</button>
@@ -114,20 +168,22 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </footer>
 
 <script>
-function showSection(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function showSection(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+
+function toggleCard(el){el.classList.toggle('active');}
 
 function searchBook(){let input=document.getElementById('searchInput').value.toLowerCase();let books=document.getElementsByClassName('book');for(let i=0;i<books.length;i++){let txt=books[i].innerText.toLowerCase();books[i].style.display=txt.includes(input)?"block":"none";}}
 
 function openModal(){document.getElementById('modal').style.display='flex';loadLogin();}
 
 let isLogin=true;
-function switchForm(){isLogin=!isLogin;document.getElementById('formTitle').innerText=isLogin?'Login':'Register';if(isLogin){loadLogin()}else{loadRegister()}}
+function switchForm(){isLogin=!isLogin;document.getElementById('formTitle').innerText=isLogin?'Login':'Register';isLogin?loadLogin():loadRegister();}
 
 function loadLogin(){document.getElementById('formContent').innerHTML=`
 <input placeholder='First Name'>
 <input placeholder='Last Name'>
 <input placeholder='Email'>
-<input type='password' placeholder='Password'>`}
+<input type='password' placeholder='Password'>`;}
 
 function loadRegister(){document.getElementById('formContent').innerHTML=`
 <input placeholder='First Name'>
@@ -135,9 +191,9 @@ function loadRegister(){document.getElementById('formContent').innerHTML=`
 <input placeholder='Email'>
 <input placeholder='No HP'>
 <input type='password' placeholder='Password'>
-<input type='password' placeholder='Confirm Password'>`}
+<input type='password' placeholder='Confirm Password'>`;}
 
-function submitForm(){alert('Berhasil! (simulasi)')}
+function submitForm(){alert('Berhasil');}
 </script>
 
 </body>

@@ -11,32 +11,37 @@
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
 body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);} 
 
-header{background:#4b0f16;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
-.logo{font-family:'Playfair Display';font-size:28px;color:#fff;}
+header{background:linear-gradient(90deg,#4b0f16,#7a1b26);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
+.logo{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    font-weight:700;
+    background:linear-gradient(90deg,#f6eee6,#7a1b26);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 nav a{margin-left:20px;color:#fff;text-decoration:none;cursor:pointer;}
 .login-btn{background:#fff;color:#7a1b26;padding:8px 15px;border-radius:20px;}
 
-section{padding:80px 12%;}
+section{padding:80px 12%;display:none;}
+.active{display:block;}
+
 .hero{text-align:center;color:#fff;}
 .hero h1{font-family:'Playfair Display';font-size:50px;}
 
-/* PROFILE */
 .profile{text-align:center;}
 .card-container{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
 .card{width:200px;padding:20px;border-radius:50px;background:#fff;cursor:pointer;transition:0.3s;}
 .card:hover{transform:scale(1.08);} 
 .card.active{background:#7a1b26;color:#fff;}
 
-/* COLLECTION */
 .search-box{max-width:400px;margin:0 auto 20px;}
 .search-box input{width:100%;padding:12px;border-radius:10px;border:none;}
 .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
 .book{background:#fff;padding:15px;border-radius:12px;text-align:center;}
 
-/* MEDIA */
 .video iframe{width:100%;max-width:700px;height:380px;border-radius:16px;display:block;margin:auto;}
 
-/* ADMIN */
 .admin{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:center;}
 .admin img{width:220px;height:220px;border-radius:20px;object-fit:cover;background:#ccc;}
 .admin-info{max-width:400px;}
@@ -44,16 +49,8 @@ section{padding:80px 12%;}
 .link-btn{padding:10px 18px;border-radius:30px;background:#7a1b26;color:#fff;text-decoration:none;transition:0.3s;}
 .link-btn:hover{transform:scale(1.1);}
 
-/* CONTACT */
 .contact{text-align:center;background:#4b0f16;color:#fff;}
 .feedback-box{max-width:500px;margin:auto;background:#fff;padding:25px;border-radius:15px;color:#000;}
-
-/* MODAL */
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
-.modal-box{background:#fff;padding:25px;border-radius:15px;width:350px;}
-.modal-box input{width:100%;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #ccc;}
-.modal-box button{width:100%;padding:10px;background:#7a1b26;color:#fff;border:none;border-radius:10px;}
-.switch{margin-top:10px;text-align:center;cursor:pointer;color:#7a1b26;}
 
 footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </style>
@@ -64,32 +61,48 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <header>
 <div class="logo">Perisa's Library</div>
 <nav>
-<a href="#home">Home</a>
-<a href="#profile">Profile</a>
-<a href="#collection">Collection</a>
-<a href="#media">Media</a>
-<a href="#admin">Admin</a>
-<a href="#contact">Contact</a>
-<a class="login-btn" onclick="openLogin()">Login</a>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('profile')">Profile</a>
+<a onclick="showSection('collection')">Collection</a>
+<a onclick="showSection('media')">Media</a>
+<a onclick="showSection('admin')">Admin</a>
+<a onclick="showSection('contact')">Contact</a>
 </nav>
 </header>
 
-<section id="home" class="hero">
+<!-- HOME (hanya profile + media) -->
+<section id="home" class="active">
+<div class="hero">
 <h1>Perisa's Library</h1>
 <p>Ruang digital modern untuk eksplorasi ilmu dan ide</p>
-</section>
+</div>
 
-<section id="profile" class="profile">
+<div class="profile">
 <h2>Profile</h2>
-<p>Perisa's Library adalah perpustakaan digital yang dibuat untuk mendukung kebutuhan akademik mahasiswa dengan menyediakan akses informasi modern.</p>
-<div class="card-container">
-<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital inovatif</p></div>
-<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menyediakan akses informasi cepat dan modern</p></div>
+<p>Perisa's Library adalah perpustakaan digital modern untuk mahasiswa.</p>
+</div>
+
+<div>
+<h2 style="text-align:center">Inspirational Video</h2>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/ZXsQAXx_ao0" allowfullscreen></iframe>
+</div>
 </div>
 </section>
 
+<!-- PROFILE -->
+<section id="profile">
+<h2>Profile</h2>
+<p>Perisa's Library dibuat untuk mendukung kebutuhan akademik mahasiswa dengan akses informasi modern.</p>
+<div class="card-container">
+<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital inovatif</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menyediakan akses informasi cepat</p></div>
+</div>
+</section>
+
+<!-- COLLECTION -->
 <section id="collection">
-<h2>Modern Collection</h2>
+<h2>Collection</h2>
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Cari buku..." onkeyup="searchBook()">
 </div>
@@ -103,6 +116,7 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </div>
 </section>
 
+<!-- MEDIA -->
 <section id="media">
 <h2 style="text-align:center">Inspirational Video</h2>
 <div class="video">
@@ -110,6 +124,7 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </div>
 </section>
 
+<!-- ADMIN -->
 <section id="admin">
 <h2 style="text-align:center">About Founder</h2>
 <div class="admin">
@@ -117,7 +132,7 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <div class="admin-info">
 <h3>About Founder</h3>
 <p>Mahasiswa S1 Ilmu Perpustakaan semester 6 aktif di Universitas Sumatera Utara.</p>
-<p>Memiliki minat dalam pengembangan perpustakaan digital dan teknologi informasi.</p>
+<p>Tertarik pada pengembangan perpustakaan digital dan teknologi informasi.</p>
 <div class="link-btns">
 <a href="#" class="link-btn">CV</a>
 <a href="https://www.instagram.com/nazwanasutionn/?utm_source=ig_web_button_share_sheet" target="_blank" class="link-btn">Instagram</a>
@@ -126,6 +141,7 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="contact">
 <h2>Contact</h2>
 <div class="feedback-box">
@@ -136,22 +152,18 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </div>
 </section>
 
-<div class="modal" id="modal">
-<div class="modal-box">
-<h3 id="formTitle">Login</h3>
-<input placeholder="Email">
-<input placeholder="Password" type="password">
-<button>Masuk</button>
-<div class="switch" onclick="switchForm()">Belum punya akun? Daftar</div>
-</div>
-</div>
-
 <footer>
 © 2026 Perisa Library
 </footer>
 
 <script>
-function openLogin(){document.getElementById('modal').style.display='flex';}
+function showSection(id){
+let sections=document.querySelectorAll('section');
+sections.forEach(sec=>sec.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+
 function toggleCard(el){el.classList.toggle('active');}
 
 function searchBook(){
@@ -161,13 +173,6 @@ for(let i=0;i<books.length;i++){
 let txt=books[i].innerText.toLowerCase();
 books[i].style.display=txt.includes(input)?"block":"none";
 }
-}
-
-let isLogin=true;
-function switchForm(){
-let title=document.getElementById('formTitle');
-title.innerText=isLogin?'Register':'Login';
-isLogin=!isLogin;
 }
 </script>
 

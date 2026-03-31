@@ -9,366 +9,165 @@
 
 <style>
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
+body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);} 
 
-body{
-    margin:0;
-    background:linear-gradient(135deg,#5a0f18,#f6eee6);
-    color:#3a1b1f;
-}
+header{background:#4b0f16;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'Playfair Display';font-size:28px;color:#fff;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;cursor:pointer;}
+.login-btn{background:#fff;color:#7a1b26;padding:8px 15px;border-radius:20px;}
 
-/* HEADER */
-header{
-    background:linear-gradient(90deg,#4b0f16,#7a1b26);
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+section{padding:80px 12%;}
+.hero{text-align:center;color:#fff;}
+.hero h1{font-family:'Playfair Display';font-size:50px;}
 
-.logo{
-    font-family:'Playfair Display', serif;
-    font-size:30px;
-    font-weight:700;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav a{
-    margin-left:25px;
-    text-decoration:none;
-    color:#f6eee6;
-    font-weight:500;
-    cursor:pointer;
-}
-
-.login-btn{
-    padding:8px 16px;
-    border-radius:20px;
-    background:#f6eee6;
-    color:#7a1b26;
-    font-weight:600;
-}
-
-/* MODAL LOGIN */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.55);
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
-
-.modal-box{
-    background:linear-gradient(135deg,#fff,#f6eee6);
-    padding:30px 35px;
-    border-radius:18px;
-    width:100%;
-    max-width:420px;
-    box-shadow:0 15px 45px rgba(0,0,0,0.35);
-}
-
-.modal-box h2{
-    margin-top:0;
-    text-align:center;
-    font-family:'Playfair Display', serif;
-}
-
-.form-group{margin-bottom:14px;}
-
-.form-group label{
-    font-size:13px;
-    font-weight:600;
-}
-
-.form-group input{
-    width:100%;
-    padding:11px 12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    outline:none;
-}
-
-.modal-box button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(90deg,#7a1b26,#4b0f16);
-    color:#fff;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-.close-btn{
-    text-align:center;
-    margin-top:10px;
-    font-size:13px;
-    cursor:pointer;
-    color:#7a1b26;
-}
-
-/* SECTION */
-section{padding:90px 12%;}
-
-.hero{
-    display:flex;
-    align-items:center;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.hero-text h1{
-    font-family:'Playfair Display', serif;
-    font-size:52px;
-    background:linear-gradient(90deg,#f6eee6,#7a1b26);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero-text p{line-height:1.9;}
-
-/* ABOUT */
-.about{text-align:center;}
-
-.about img{
-    width:260px;
-    height:260px;
-    object-fit:cover;
-    border-radius:20px;
-    padding:6px;
-    background:linear-gradient(135deg,#7a1b26,#f6eee6);
-}
+/* PROFILE */
+.profile{text-align:center;}
+.card-container{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
+.card{width:200px;padding:20px;border-radius:50px;background:#fff;cursor:pointer;transition:0.3s;}
+.card:hover{transform:scale(1.08);} 
+.card.active{background:#7a1b26;color:#fff;}
 
 /* COLLECTION */
-.search-box{
-    max-width:500px;
-    margin:0 auto 35px;
-}
-
-.search-box input{
-    width:100%;
-    padding:14px 18px;
-    border-radius:12px;
-    border:none;
-}
-
-.book-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:25px;
-}
-
-.book{
-    background:rgba(255,255,255,0.55);
-    border-radius:14px;
-    padding:15px;
-    text-align:center;
-}
+.search-box{max-width:400px;margin:0 auto 20px;}
+.search-box input{width:100%;padding:12px;border-radius:10px;border:none;}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.book{background:#fff;padding:15px;border-radius:12px;text-align:center;}
 
 /* MEDIA */
-.media-links{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    max-width:550px;
-    margin:0 auto;
-}
+.video iframe{width:100%;max-width:700px;height:380px;border-radius:16px;display:block;margin:auto;}
 
-/* VIDEO */
-.video iframe{
-    width:100%;
-    max-width:720px;
-    height:400px;
-    border-radius:16px;
-    display:block;
-    margin:0 auto;
-}
+/* ADMIN */
+.admin{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:center;}
+.admin img{width:220px;height:220px;border-radius:20px;object-fit:cover;background:#ccc;}
+.admin-info{max-width:400px;}
+.link-btns{margin-top:15px;display:flex;gap:10px;}
+.link-btn{padding:10px 18px;border-radius:30px;background:#7a1b26;color:#fff;text-decoration:none;transition:0.3s;}
+.link-btn:hover{transform:scale(1.1);}
 
 /* CONTACT */
-.contact{
-    text-align:center;
-    background:linear-gradient(135deg,#7a1b26,#4b0f16);
-    color:#f6eee6;
-    border-radius:35px 35px 0 0;
-}
+.contact{text-align:center;background:#4b0f16;color:#fff;}
+.feedback-box{max-width:500px;margin:auto;background:#fff;padding:25px;border-radius:15px;color:#000;}
 
-.feedback-box{
-    max-width:560px;
-    margin:40px auto 0;
-    background:rgba(255,255,255,0.95);
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.35);
-}
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
+.modal-box{background:#fff;padding:25px;border-radius:15px;width:350px;}
+.modal-box input{width:100%;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #ccc;}
+.modal-box button{width:100%;padding:10px;background:#7a1b26;color:#fff;border:none;border-radius:10px;}
+.switch{margin-top:10px;text-align:center;cursor:pointer;color:#7a1b26;}
 
-.feedback-box label{
-    font-weight:600;
-    font-size:14px;
-    color:#4b0f16;
-}
-
-.feedback-box input,
-.feedback-box textarea{
-    width:100%;
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #ccc;
-    font-weight:500;
-}
-
-.feedback-box button{
-    width:100%;
-    margin-top:12px;
-    padding:12px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(90deg,#7a1b26,#4b0f16);
-    color:#fff;
-    font-weight:600;
-}
-
-/* FOOTER */
-footer{
-    background:#4b0f16;
-    text-align:center;
-    padding:18px;
-    color:#f6eee6;
-}
-
-@media(max-width:900px){
-    header{padding:18px 25px;}
-    section{padding:70px 8%;}
-}
+footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">Perisa's Library</div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#collection">Collection</a>
-        <a href="#media">Media</a>
-        <a href="#contact">Contact</a>
-        <a class="login-btn" id="loginBtn" onclick="openLogin()">Login</a>
-    </nav>
+<div class="logo">Perisa's Library</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#profile">Profile</a>
+<a href="#collection">Collection</a>
+<a href="#media">Media</a>
+<a href="#admin">Admin</a>
+<a href="#contact">Contact</a>
+<a class="login-btn" onclick="openLogin()">Login</a>
+</nav>
 </header>
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
-    <div class="modal-box">
-        <h2>Login</h2>
+<section id="home" class="hero">
+<h1>Perisa's Library</h1>
+<p>Ruang digital modern untuk eksplorasi ilmu dan ide</p>
+</section>
 
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" id="fname">
-        </div>
+<section id="profile" class="profile">
+<h2>Profile</h2>
+<p>Perisa's Library adalah perpustakaan digital yang dibuat untuk mendukung kebutuhan akademik mahasiswa dengan menyediakan akses informasi modern.</p>
+<div class="card-container">
+<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital inovatif</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menyediakan akses informasi cepat dan modern</p></div>
+</div>
+</section>
 
-        <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" id="lname">
-        </div>
+<section id="collection">
+<h2>Modern Collection</h2>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari buku..." onkeyup="searchBook()">
+</div>
+<div class="book-grid" id="bookGrid">
+<div class="book">AI & Future Tech</div>
+<div class="book">Digital Marketing 5.0</div>
+<div class="book">UI/UX Design Modern</div>
+<div class="book">Startup Mindset</div>
+<div class="book">Cyber Security Basics</div>
+<div class="book">Data Science Guide</div>
+</div>
+</section>
 
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email">
-        </div>
+<section id="media">
+<h2 style="text-align:center">Inspirational Video</h2>
+<div class="video">
+<iframe src="https://www.youtube.com/embed/ZXsQAXx_ao0" allowfullscreen></iframe>
+</div>
+</section>
 
-        <div class="form-group">
-            <label>Nomor Telepon</label>
-            <input type="tel" id="phone">
-        </div>
+<section id="admin">
+<h2 style="text-align:center">About Founder</h2>
+<div class="admin">
+<img src="" alt="foto kamu">
+<div class="admin-info">
+<h3>About Founder</h3>
+<p>Mahasiswa S1 Ilmu Perpustakaan semester 6 aktif di Universitas Sumatera Utara.</p>
+<p>Memiliki minat dalam pengembangan perpustakaan digital dan teknologi informasi.</p>
+<div class="link-btns">
+<a href="#" class="link-btn">CV</a>
+<a href="https://www.instagram.com/nazwanasutionn/?utm_source=ig_web_button_share_sheet" target="_blank" class="link-btn">Instagram</a>
+</div>
+</div>
+</div>
+</section>
 
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password">
-        </div>
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<div class="feedback-box">
+<input placeholder="Nama">
+<input placeholder="Email">
+<textarea placeholder="Pesan"></textarea>
+<button>Kirim</button>
+</div>
+</section>
 
-        <button onclick="saveLogin()">Masuk</button>
-        <div class="close-btn" onclick="closeLogin()">Tutup</div>
-    </div>
+<div class="modal" id="modal">
+<div class="modal-box">
+<h3 id="formTitle">Login</h3>
+<input placeholder="Email">
+<input placeholder="Password" type="password">
+<button>Masuk</button>
+<div class="switch" onclick="switchForm()">Belum punya akun? Daftar</div>
+</div>
 </div>
 
-<!-- HERO -->
-<section id="home" class="hero">
-    <div class="hero-text">
-        <h1>Perisa's Library</h1>
-        <p>Sebuah ruang literasi digital untuk berbagi dokumentasi akademik dan eksplorasi ide.</p>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-    <h2 style="font-family:'Playfair Display', serif;">Contact Us</h2>
-    <p style="font-weight:600;">Kami sangat menghargai kritik, saran, dan pesan dari kamu 💬</p>
-
-    <div class="feedback-box">
-        <div class="form-group">
-            <label>Nama</label>
-            <input type="text" id="fbName">
-        </div>
-
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="fbEmail">
-        </div>
-
-        <div class="form-group">
-            <label>Pesan / Feedback</label>
-            <textarea rows="4" id="fbMsg"></textarea>
-        </div>
-
-        <button onclick="sendFeedback()">Kirim Pesan</button>
-    </div>
-</section>
-
 <footer>
-    © 2026 Perisa’s Library
+© 2026 Perisa Library
 </footer>
 
 <script>
-function openLogin(){
-    document.getElementById("loginModal").style.display="flex";
+function openLogin(){document.getElementById('modal').style.display='flex';}
+function toggleCard(el){el.classList.toggle('active');}
+
+function searchBook(){
+let input=document.getElementById('searchInput').value.toLowerCase();
+let books=document.getElementsByClassName('book');
+for(let i=0;i<books.length;i++){
+let txt=books[i].innerText.toLowerCase();
+books[i].style.display=txt.includes(input)?"block":"none";
+}
 }
 
-function closeLogin(){
-    document.getElementById("loginModal").style.display="none";
-}
-
-function saveLogin(){
-    let fname = document.getElementById("fname").value;
-    if(fname===""){alert("Isi nama depan dulu ya 😊"); return;}
-    localStorage.setItem("username", fname);
-    document.getElementById("loginBtn").innerText="Hi, "+fname+" 👋";
-    closeLogin();
-}
-
-window.onload = function(){
-    let name = localStorage.getItem("username");
-    if(name){
-        document.getElementById("loginBtn").innerText="Hi, "+name+" 👋";
-    }
-}
-
-function sendFeedback(){
-    let name = document.getElementById("fbName").value;
-    let msg = document.getElementById("fbMsg").value;
-
-    if(name==="" || msg===""){
-        alert("Nama dan pesan wajib diisi ya 😊");
-        return;
-    }
-
-    alert("Terima kasih atas feedback-nya 💖");
-    document.getElementById("fbName").value="";
-    document.getElementById("fbEmail").value="";
-    document.getElementById("fbMsg").value="";
+let isLogin=true;
+function switchForm(){
+let title=document.getElementById('formTitle');
+title.innerText=isLogin?'Register':'Login';
+isLogin=!isLogin;
 }
 </script>
 

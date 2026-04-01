@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perisa's Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
@@ -13,120 +13,99 @@ body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);}
 
 header{background:linear-gradient(90deg,#4b0f16,#7a1b26);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
 .logo{font-family:'Playfair Display';font-size:30px;font-weight:700;background:linear-gradient(90deg,#f6eee6,#7a1b26);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
-/* NAV INTERAKTIF */
-nav a{
-    margin-left:20px;
-    color:#fff;
-    text-decoration:none;
-    cursor:pointer;
-    position:relative;
-    transition:0.3s;
-}
-nav a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:2px;
-    bottom:-5px;
-    left:0;
-    background:#ff7a7a;
-    transition:0.3s;
-}
-nav a:hover::after{width:100%;}
-nav a:hover{color:#ffb3b3;}
-nav a:active{transform:scale(0.9);} 
+nav a{margin-left:20px;color:#fff;text-decoration:none;cursor:pointer;}
 
 section{padding:80px 12%;display:none;}
 .active{display:block;}
 
-/* HERO */
+/* HERO UPGRADE */
 .hero{text-align:center;position:relative;}
 .hero h1{
-    font-family:'Orbitron';
+    font-family:'Montserrat';
     font-size:52px;
     background:linear-gradient(90deg,#ff7a7a,#ffffff,#ffb3b3);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     animation:glow 3s ease-in-out infinite alternate;
 }
-@keyframes glow{from{filter:drop-shadow(0 0 5px rgba(255,122,122,0.5));}to{filter:drop-shadow(0 0 20px rgba(255,122,122,0.9));}}
+@keyframes glow{
+    from{filter:drop-shadow(0 0 5px rgba(255,122,122,0.5));}
+    to{filter:drop-shadow(0 0 20px rgba(255,122,122,0.9));}
+}
+.hero::after{
+    content:"📚";
+    position:absolute;
+    font-size:40px;
+    top:-10px;
+    right:20%;
+    animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
 
+/* SEARCH MODERN */
 .search-box{max-width:420px;margin:25px auto;position:relative;}
-.search-box input{width:100%;padding:16px;border-radius:30px;border:none;box-shadow:0 10px 25px rgba(0,0,0,0.2);} 
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    font-size:14px;
+}
+.search-box::after{
+    content:"🔍";
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+}
 
 .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin-top:30px;}
 .book{background:#fff;border-radius:16px;padding:10px;text-align:center;transition:0.3s;}
 .book img{width:100%;height:180px;object-fit:cover;border-radius:12px;}
 .book:hover{transform:translateY(-5px);} 
 
-/* PROFILE TEXT LEBIH HIDUP */
-.profile-text{
-    font-family:'Montserrat';
-    font-size:17px;
-    line-height:1.9;
-    max-width:850px;
-    margin:0 auto;
-    background:linear-gradient(90deg,#7a1b26,#ff7a7a,#ffb3b3);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-align:center;
-}
+.profile-text{font-family:'Montserrat';font-size:17px;line-height:1.9;max-width:850px;margin:0 auto;background:linear-gradient(90deg,#7a1b26,#ff7a7a,#ffb3b3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
 
 .card-container{display:flex;gap:25px;flex-wrap:wrap;justify-content:center;margin-top:40px;}
-.card{width:380px;border-radius:40px;padding:25px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;cursor:pointer;transition:0.4s;}
+.card{width:380px;border-radius:40px;padding:25px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;cursor:pointer;position:relative;overflow:hidden;transition:0.4s;}
+.card::before{content:"";position:absolute;width:120%;height:120%;background:rgba(255,255,255,0.15);top:-100%;left:-100%;transform:rotate(25deg);transition:0.5s;}
+.card:hover::before{top:0;left:0;}
+.card h3{margin:0;font-family:'Montserrat';font-size:22px;}
+.card p{margin-top:12px;font-size:14px;line-height:1.7;color:#ffeaea;}
 .card:hover{transform:scale(1.05);} 
 
 .event-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
-.event{width:220px;height:120px;border-radius:60px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:0.4s;cursor:pointer;}
-.event:hover{transform:scale(1.1);} 
+.event{width:220px;height:120px;border-radius:60px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:0.4s;cursor:pointer;position:relative;overflow:hidden;}
+.event::after{content:"";position:absolute;width:150%;height:150%;background:rgba(255,255,255,0.15);top:-120%;left:-120%;transform:rotate(25deg);transition:0.5s;}
+.event:hover::after{top:0;left:0;}
+.event:hover{transform:scale(1.1) rotate(-2deg);} 
+.event span{font-size:13px;margin-top:6px;}
 
 .video iframe{width:100%;max-width:700px;height:380px;border-radius:16px;display:block;margin:auto;}
 
-/* ADMIN UPGRADE */
 .admin{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:center;}
-.admin img{
-    width:230px;
-    height:230px;
-    border-radius:25px;
-    padding:6px;
-    background:linear-gradient(135deg,#7a1b26,#ff7a7a);
-    object-fit:cover;
-    transition:0.4s;
-}
-.admin img:hover{transform:scale(1.05) rotate(2deg);} 
+.admin img{width:220px;height:220px;border-radius:20px;background:#ccc;}
+.link-btn{padding:10px 18px;border-radius:30px;background:#7a1b26;color:#fff;text-decoration:none;margin-right:10px;}
 
-/* FONT ABOUT FOUNDER */
-#admin h2{
-    font-family:'Orbitron';
-    color:#fff;
-}
-
-/* ICON INTERAKTIF */
-.link-btn{
-    padding:12px 22px;
-    border-radius:40px;
-    background:linear-gradient(90deg,#7a1b26,#ff7a7a);
-    color:#fff;
-    text-decoration:none;
-    margin-right:10px;
-    transition:0.3s;
-    display:inline-block;
-}
-.link-btn:hover{
-    transform:scale(1.1);
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* CONTACT */
+/* CONTACT FUN */
 .contact{text-align:center;background:linear-gradient(135deg,#7a1b26,#ff7a7a);color:#fff;}
-.feedback-box{max-width:500px;margin:auto;background:#fff;padding:35px;border-radius:25px;color:#000;}
-.feedback-box input,.feedback-box textarea{width:100%;margin:12px 0;padding:14px;border-radius:14px;border:1px solid #ddd;}
-.feedback-box button{width:100%;padding:14px;border:none;border-radius:30px;background:linear-gradient(90deg,#ff7a7a,#7a1b26);color:#fff;}
+.feedback-box{max-width:500px;margin:auto;background:#fff;padding:35px;border-radius:25px;color:#000;box-shadow:0 15px 40px rgba(0,0,0,0.3);}
+.feedback-box input,.feedback-box textarea{width:100%;margin:12px 0;padding:14px;border-radius:14px;border:1px solid #ddd;transition:0.3s;}
+.feedback-box input:focus,.feedback-box textarea:focus{border-color:#ff7a7a;box-shadow:0 0 10px rgba(255,122,122,0.5);}
+.feedback-box button{width:100%;padding:14px;border:none;border-radius:30px;background:linear-gradient(90deg,#ff7a7a,#7a1b26);color:#fff;font-weight:600;transition:0.3s;}
+.feedback-box button:hover{transform:scale(1.05);} 
 
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
 .modal-box{background:#fff;padding:25px;border-radius:15px;width:350px;position:relative;}
 .close-modal{position:absolute;top:10px;right:15px;cursor:pointer;font-size:20px;}
+.modal-box input{width:100%;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #ccc;}
+.modal-box button{width:100%;padding:10px;background:#7a1b26;color:#fff;border:none;border-radius:10px;}
+.switch{text-align:center;margin-top:10px;cursor:pointer;color:#7a1b26;}
 
 footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </style>
@@ -163,15 +142,24 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <div class="book"><img src="https://picsum.photos/200/300?5"><p>Cyber Security</p></div>
 <div class="book"><img src="https://picsum.photos/200/300?6"><p>Data Science</p></div>
 </div>
+
+<h2 style="text-align:center;margin-top:40px">Upcoming Events</h2>
+<div class="event-grid">
+<div class="event"><h3>Book Talk</h3><span>12 April 2026</span></div>
+<div class="event"><h3>Creative Writing</h3><span>18 April 2026</span></div>
+<div class="event"><h3>Digital Literacy</h3><span>25 April 2026</span></div>
+</div>
+
+</div>
 </section>
 
 <!-- PROFILE -->
 <section id="profile">
 <h2 style="text-align:center">Profile</h2>
-<p class="profile-text">Perisa's Library adalah perpustakaan digital modern yang menghadirkan pengalaman belajar yang lebih hidup, interaktif, dan relevan dengan perkembangan zaman.</p>
+<p class="profile-text">Perisa's Library adalah perpustakaan digital yang dirancang sebagai ruang akses informasi yang cepat, praktis, dan relevan dengan kebutuhan masa kini...</p>
 <div class="card-container">
-<div class="card"><h3>Visi</h3><p>Menjadi perpustakaan digital modern.</p></div>
-<div class="card"><h3>Misi</h3><p>Menyediakan akses informasi terbaik.</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital yang mudah dijangkau, relevan, dan menyenangkan.</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menyediakan akses informasi modern dan mendukung pembelajaran berkelanjutan.</p></div>
 </div>
 </section>
 
@@ -235,6 +223,8 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 <script>
 function showSection(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);} 
 
+function toggleCard(el){el.classList.toggle('active');}
+
 function searchBook(){let input=document.getElementById('searchInput').value.toLowerCase();let books=document.getElementsByClassName('book');for(let i=0;i<books.length;i++){let txt=books[i].innerText.toLowerCase();books[i].style.display=txt.includes(input)?"block":"none";}}
 
 function openModal(){document.getElementById('modal').style.display='flex';loadLogin();}
@@ -257,7 +247,7 @@ function loadRegister(){document.getElementById('formContent').innerHTML=`
 <input type='password' placeholder='Password'>
 <input type='password' placeholder='Confirm Password'>`;}
 
-function submitForm(){alert('Berhasil (simulasi)');}
+function submitForm(){alert('Berhasil');}
 </script>
 
 </body>

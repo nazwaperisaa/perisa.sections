@@ -8,11 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { margin: 0; background: linear-gradient(135deg,#5a0f18,#f6eee6); min-height: 100vh; } 
+        /* --- PENAMBAHAN VARIABLE UNTUK DARK MODE --- */
+        :root {
+            --body-bg: linear-gradient(135deg,#5a0f18,#f6eee6);
+            --header-bg: linear-gradient(90deg,#4b0f16,#7a1b26);
+            --card-bg: #ffffff;
+            --text-color: #000000;
+            --section-title: #4b0f16;
+        }
+
+        [data-theme="dark"] {
+            --body-bg: linear-gradient(135deg,#1a0508,#2c0b0e);
+            --header-bg: linear-gradient(90deg,#1a0508,#3d0c11);
+            --card-bg: #2d0a0e;
+            --text-color: #ffffff;
+            --section-title: #ff7a7a;
+        }
+
+        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; transition: all 0.3s ease; }
+        body { margin: 0; background: var(--body-bg); min-height: 100vh; color: var(--text-color); } 
 
         header { 
-            background: linear-gradient(90deg,#4b0f16,#7a1b26); 
+            background: var(--header-bg); 
             padding: 15px 60px; 
             display: flex; 
             justify-content: space-between; 
@@ -21,6 +38,9 @@
             top: 0; 
             z-index: 1000; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            /* REKOMENDASI 1: Glassmorphism */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .logo { 
@@ -32,8 +52,7 @@
             -webkit-text-fill-color: transparent; 
         }
 
-        /* --- NAVIGASI INTERAKTIF --- */
-        nav { display: flex; gap: 5px; }
+        nav { display: flex; gap: 5px; align-items: center; }
         nav a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
@@ -51,7 +70,6 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* Garis bawah modern */
         nav a::after {
             content: '';
             position: absolute;
@@ -71,6 +89,19 @@
             background: rgba(255,255,255,0.15);
         }
 
+        /* TOMBOL DARK MODE */
+        .theme-toggle {
+            background: #ff7a7a;
+            color: #4b0f16;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+
         section { padding: 80px 12%; display: none; animation: fadeInSec 0.5s ease; }
         .active { display: block; }
 
@@ -79,7 +110,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* HERO & SEARCH */
         .hero { text-align: center; position: relative; }
         .hero h1 {
             font-family: 'Montserrat';
@@ -106,12 +136,13 @@
             font-size: 14px;
         }
 
+        /* REKOMENDASI 1: Mikro Interaksi pada Buku */
         .book-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 20px; margin-top: 30px; }
-        .book { background: #fff; border-radius: 16px; padding: 10px; text-align: center; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .book img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; }
-        .book:hover { transform: translateY(-5px); } 
+        .book { background: var(--card-bg); border-radius: 16px; padding: 10px; text-align: center; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .book img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; transition: 0.3s; }
+        .book:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .book:hover img { transform: scale(1.02); }
 
-        /* CARDS & PROFILE */
         .card-container { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
         .card { width: 100%; max-width: 850px; border-radius: 40px; padding: 30px; background: linear-gradient(135deg,#ff7a7a,#7a1b26); color: #fff; cursor: pointer; position: relative; overflow: hidden; transition: 0.4s; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .card::before { content: ""; position: absolute; width: 120%; height: 120%; background: rgba(255,255,255,0.15); top: -100%; left: -100%; transform: rotate(25deg); transition: 0.5s; }
@@ -119,29 +150,27 @@
         .card h3 { margin: 0; font-family: 'Montserrat'; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
         .card p { margin-top: 15px; font-size: 15px; line-height: 1.8; color: #ffeaea; }
 
-        /* EVENT INTERACTIVE */
         .event-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .event-card { background: #fff; border-radius: 25px; overflow: hidden; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 1px solid rgba(122, 27, 38, 0.1); }
+        .event-card { background: var(--card-bg); border-radius: 25px; overflow: hidden; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 1px solid rgba(122, 27, 38, 0.1); }
         .event-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(122, 27, 38, 0.2); }
         .event-img { width: 100%; height: 180px; object-fit: cover; }
         .event-info { padding: 20px; text-align: left; }
         .event-info h3 { margin: 0; color: #7a1b26; font-family: 'Montserrat'; }
+        [data-theme="dark"] .event-info h3 { color: #ff7a7a; }
         .event-info span { display: block; color: #ff7a7a; font-weight: 600; font-size: 13px; margin: 5px 0 12px 0; }
 
-        /* ADMIN BIO */
         .admin-bio { background: linear-gradient(135deg, #7a1b26, #ff7a7a); padding: 35px 50px; border-radius: 100px; color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-top: 20px; text-align: center; }
         .admin { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: center; flex-direction: column; }
-        .admin img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .admin img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: 0.4s; }
+        .admin img:hover { transform: scale(1.1) rotate(5deg); }
+
         .link-btn { padding: 12px 25px; border-radius: 30px; background: #7a1b26; color: #fff; text-decoration: none; margin: 10px 5px; display: inline-block; transition: 0.3s; font-size: 14px; }
         .link-btn:hover { background: #4b0f16; transform: translateY(-3px); }
 
-        /* CONTACT */
         .contact { text-align: center; background: linear-gradient(135deg,#7a1b26,#ff7a7a); color: #fff; border-radius: 50px 50px 0 0; }
-        .feedback-box { max-width: 500px; margin: auto; background: #fff; padding: 35px; border-radius: 25px; color: #000; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
-        .feedback-box input, .feedback-box textarea { width: 100%; margin: 12px 0; padding: 14px; border-radius: 14px; border: 1px solid #ddd; outline: none; transition: 0.3s; }
-        .feedback-box button { width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(90deg,#ff7a7a,#7a1b26); color: #fff; font-weight: 600; cursor: pointer; }
+        .feedback-box { max-width: 500px; margin: auto; background: var(--card-bg); padding: 35px; border-radius: 25px; color: var(--text-color); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .feedback-box input, .feedback-box textarea { width: 100%; margin: 12px 0; padding: 14px; border-radius: 14px; border: 1px solid #ddd; outline: none; }
 
-        /* --- MODAL LOGIN MODERN --- */
         .modal {
             display: none;
             position: fixed;
@@ -151,16 +180,10 @@
             justify-content: center;
             align-items: center; 
             z-index: 2000;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .modal-box {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 30px;
             width: 90%;
@@ -170,43 +193,7 @@
             text-align: center;
         }
 
-        .modal-box h3 { font-family: 'Montserrat'; font-size: 28px; color: #4b0f16; margin-bottom: 25px; }
-        .close-modal { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #7a1b26; transition: 0.3s; }
-        .close-modal:hover { transform: rotate(90deg); color: #ff7a7a; }
-
-        #formContent input {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: 1.5px solid #eee;
-            background: #f9f9f9;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        #formContent input:focus { border-color: #ff7a7a; background: #fff; box-shadow: 0 5px 15px rgba(255,122,122,0.1); }
-
-        .modal-box button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 15px;
-            background: linear-gradient(90deg, #7a1b26, #ff7a7a);
-            background-size: 200% auto;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.5s;
-            margin-top: 10px;
-        }
-
-        .modal-box button:hover { background-position: right center; transform: translateY(-2px); }
-        .switch { margin-top: 20px; font-size: 13px; color: #666; cursor: pointer; }
-        .switch:hover { color: #7a1b26; text-decoration: underline; }
-
         footer { background: #4b0f16; color: #fff; text-align: center; padding: 20px; }
-        .video iframe { width: 100%; max-width: 700px; height: 380px; border-radius: 16px; display: block; margin: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     </style>
 </head>
 
@@ -222,6 +209,7 @@
         <a onclick="showSection('admin', this)">Admin</a>
         <a onclick="showSection('contact', this)">Contact</a>
         <a onclick="openModal()" style="background: #ff7a7a; color: #4b0f16; border-radius: 20px;">Login</a>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Dark Mode</button>
     </nav>
 </header>
 
@@ -241,7 +229,7 @@
             <div class="book"><img src="https://picsum.photos/200/300?6"><p>Data Science</p></div>
         </div>
 
-        <h2 style="text-align:center;margin-top:60px; color: #4b0f16; font-family: 'Montserrat';">Koleksi Terpopuler</h2>
+        <h2 style="text-align:center;margin-top:60px; color: var(--section-title); font-family: 'Montserrat';">Koleksi Terpopuler</h2>
         <div class="event-container">
             <div class="event-card">
                 <img src="https://picsum.photos/400/250?text=Event1" class="event-img">
@@ -264,7 +252,7 @@
 </section>
 
 <section id="profile">
-    <h2 style="text-align:center; margin-bottom: 30px; font-family: 'Montserrat'; color: #4b0f16;">Tentang Kami</h2>
+    <h2 style="text-align:center; margin-bottom: 30px; font-family: 'Montserrat'; color: var(--section-title);">Tentang Kami</h2>
     <div class="card-container">
         <div class="card">
             <h3>Apa itu Perisa's Library?</h3>
@@ -282,7 +270,7 @@
 </section>
 
 <section id="event">
-    <h2 style="text-align:center; font-family: 'Montserrat'; color: #4b0f16;">Library Events</h2>
+    <h2 style="text-align:center; font-family: 'Montserrat'; color: var(--section-title);">Library Events</h2>
     <div class="event-container">
         <div class="event-card">
             <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=500&q=80" class="event-img">
@@ -312,14 +300,14 @@
 </section>
 
 <section id="media">
-    <h2 style="text-align:center; font-family: 'Montserrat'; color: #4b0f16;">Inspirational Video</h2>
+    <h2 style="text-align:center; font-family: 'Montserrat'; color: var(--section-title);">Inspirational Video</h2>
     <div class="video">
-        <iframe src="https://www.youtube.com/embed/vPZ4icW7puI" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/vPZ4icW7puI" frameborder="0" allowfullscreen style="width: 100%; max-width: 700px; height: 380px; border-radius: 16px; display: block; margin: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></iframe>
     </div>
 </section>
 
 <section id="admin">
-    <h2 style="text-align:center; font-family: 'Montserrat'; color: #4b0f16;">About Founder</h2>
+    <h2 style="text-align:center; font-family: 'Montserrat'; color: var(--section-title);">About Founder</h2>
     <div class="admin">
         <img src="https://via.placeholder.com/200" alt="Nazwa Perisa Nasution">
         <div class="admin-bio">
@@ -338,18 +326,20 @@
         <input placeholder="Nama Lengkap">
         <input placeholder="Alamat Email">
         <textarea placeholder="Apa yang ingin Anda sampaikan?" rows="4"></textarea>
-        <button onclick="submitForm()">Kirim Pesan</button>
+        <button onclick="submitForm()" style="width: 100%; padding: 14px; border: none; border-radius: 30px; background: linear-gradient(90deg,#ff7a7a,#7a1b26); color: #fff; font-weight: 600; cursor: pointer;">Kirim Pesan</button>
     </div>
     <div style="height: 50px;"></div>
 </section>
 
 <div class="modal" id="modal">
     <div class="modal-box">
-        <div class="close-modal" onclick="closeModal()">✕</div>
-        <h3 id="formTitle">Login</h3>
-        <div id="formContent"></div>
-        <button onclick="submitForm()">Masuk Sekarang</button>
-        <div class="switch" onclick="switchForm()">Belum punya akun? Daftar di sini</div>
+        <div class="close-modal" onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #7a1b26;">✕</div>
+        <h3 id="formTitle" style="font-family: 'Montserrat'; font-size: 28px; color: #4b0f16; margin-bottom: 25px;">Login</h3>
+        <div id="formContent">
+            <input type='text' placeholder='Email atau Username' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+            <input type='password' placeholder='Password' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+        </div>
+        <button onclick="submitForm()" style="width: 100%; padding: 15px; border: none; border-radius: 15px; background: linear-gradient(90deg, #7a1b26, #ff7a7a); color: #fff; font-weight: 600; cursor: pointer;">Masuk Sekarang</button>
     </div>
 </div>
 
@@ -359,18 +349,27 @@
 
 <script>
     function showSection(id, element){
-        // Menghilangkan section aktif
         document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        
-        // Mengubah gaya navigasi yang diklik
         if(element) {
             document.querySelectorAll('nav a').forEach(nav => nav.classList.remove('active-nav'));
             element.classList.add('active-nav');
         }
-        
         window.scrollTo({top: 0, behavior: 'smooth'});
     } 
+
+    // LOGIKA DARK MODE
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            btn.innerText = "Dark Mode";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerText = "Light Mode";
+        }
+    }
 
     function searchBook(){
         let input=document.getElementById('searchInput').value.toLowerCase();
@@ -381,34 +380,9 @@
         }
     }
 
-    function openModal(){ document.getElementById('modal').style.display='flex'; loadLogin(); }
+    function openModal(){ document.getElementById('modal').style.display='flex'; }
     function closeModal(){ document.getElementById('modal').style.display='none'; }
-
-    let isLogin=true;
-    function switchForm(){
-        isLogin=!isLogin;
-        document.getElementById('formTitle').innerText=isLogin?'Login':'Register';
-        document.querySelector('.switch').innerText=isLogin?'Belum punya akun? Daftar di sini':'Sudah punya akun? Login';
-        isLogin?loadLogin():loadRegister();
-    }
-
-    function loadLogin(){
-        document.getElementById('formContent').innerHTML=`
-        <input type='text' placeholder='Email atau Username'>
-        <input type='password' placeholder='Password'>`;
-    }
-
-    function loadRegister(){
-        document.getElementById('formContent').innerHTML=`
-        <input type='text' placeholder='Nama Lengkap'>
-        <input type='email' placeholder='Email'>
-        <input type='password' placeholder='Password Baru'>`;
-    }
-
-    function submitForm(){
-        alert('Terima kasih! Permintaan kamu sedang diproses.'); 
-        closeModal();
-    }
+    function submitForm(){ alert('Terima kasih! Permintaan kamu sedang diproses.'); closeModal(); }
 </script>
 
 </body>

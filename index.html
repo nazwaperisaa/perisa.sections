@@ -193,6 +193,22 @@
             text-align: center;
         }
 
+        /* Styling tambahan untuk link switch modal */
+        .switch-form {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--text-color);
+        }
+        .switch-form span {
+            color: #7a1b26;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        [data-theme="dark"] .switch-form span {
+            color: #ff7a7a;
+        }
+
         footer { background: #4b0f16; color: #fff; text-align: center; padding: 20px; }
     </style>
 </head>
@@ -336,10 +352,21 @@
         <div class="close-modal" onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 24px; color: #7a1b26;">✕</div>
         <h3 id="formTitle" style="font-family: 'Montserrat'; font-size: 28px; color: #4b0f16; margin-bottom: 25px;">Login</h3>
         <div id="formContent">
-            <input type='text' placeholder='Email atau Username' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
-            <input type='password' placeholder='Password' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+            <div id="loginFields">
+                <input type='text' placeholder='Email atau Username' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+                <input type='password' placeholder='Password' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+            </div>
+            <div id="registerFields" style="display: none;">
+                <input type='text' placeholder='Nama Lengkap' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+                <input type='email' placeholder='Email Baru' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+                <input type='password' placeholder='Password Baru' style="width: 100%; margin-bottom: 15px; padding: 15px 20px; border-radius: 15px; border: 1.5px solid #eee;">
+            </div>
         </div>
-        <button onclick="submitForm()" style="width: 100%; padding: 15px; border: none; border-radius: 15px; background: linear-gradient(90deg, #7a1b26, #ff7a7a); color: #fff; font-weight: 600; cursor: pointer;">Masuk Sekarang</button>
+        <button id="mainBtn" onclick="submitForm()" style="width: 100%; padding: 15px; border: none; border-radius: 15px; background: linear-gradient(90deg, #7a1b26, #ff7a7a); color: #fff; font-weight: 600; cursor: pointer;">Masuk Sekarang</button>
+        
+        <div class="switch-form" id="switchText">
+            Belum punya akun? <span onclick="toggleModalMode('register')">Daftar di sini</span>
+        </div>
     </div>
 </div>
 
@@ -380,9 +407,40 @@
         }
     }
 
-    function openModal(){ document.getElementById('modal').style.display='flex'; }
+    function openModal(){ 
+        toggleModalMode('login'); // Reset ke login setiap kali dibuka
+        document.getElementById('modal').style.display='flex'; 
+    }
+    
     function closeModal(){ document.getElementById('modal').style.display='none'; }
-    function submitForm(){ alert('Terima kasih! Permintaan kamu sedang diproses.'); closeModal(); }
+    
+    function submitForm(){ 
+        alert('Terima kasih! Permintaan kamu sedang diproses.'); 
+        closeModal(); 
+    }
+
+    // LOGIKA SWITCH LOGIN / DAFTAR
+    function toggleModalMode(mode) {
+        const title = document.getElementById('formTitle');
+        const loginFields = document.getElementById('loginFields');
+        const regFields = document.getElementById('registerFields');
+        const mainBtn = document.getElementById('mainBtn');
+        const switchText = document.getElementById('switchText');
+
+        if(mode === 'register') {
+            title.innerText = 'Daftar Akun';
+            loginFields.style.display = 'none';
+            regFields.style.display = 'block';
+            mainBtn.innerText = 'Daftar Sekarang';
+            switchText.innerHTML = 'Sudah punya akun? <span onclick="toggleModalMode(\'login\')">Login di sini</span>';
+        } else {
+            title.innerText = 'Login';
+            loginFields.style.display = 'block';
+            regFields.style.display = 'none';
+            mainBtn.innerText = 'Masuk Sekarang';
+            switchText.innerHTML = 'Belum punya akun? <span onclick="toggleModalMode(\'register\')">Daftar di sini</span>';
+        }
+    }
 </script>
 
 </body>

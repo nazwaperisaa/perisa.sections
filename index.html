@@ -9,6 +9,14 @@
 
 <style>
 *{box-sizing:border-box;font-family:'Poppins', sans-serif;}
+<div class="modal" id="eventModal">
+<div class="modal-box">
+<div class="close-modal" onclick="closeEvent()">✕</div>
+<h3 id="eventTitle"></h3>
+<p id="eventDate"></p>
+<p id="eventDesc"></p>
+</div>
+</div>
 body{margin:0;background:linear-gradient(135deg,#5a0f18,#f6eee6);} 
 
 header{background:linear-gradient(90deg,#4b0f16,#7a1b26);padding:20px 60px;display:flex;justify-content:space-between;align-items:center;}
@@ -176,13 +184,90 @@ footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 
 <!-- EVENT -->
 <section id="event">
+<section id="event">
 <h2 style="text-align:center">Library Events</h2>
+
 <div class="event-grid">
-<div class="event"><h3>Book Talk</h3><span>12 April 2026</span></div>
-<div class="event"><h3>Creative Writing</h3><span>18 April 2026</span></div>
-<div class="event"><h3>Digital Literacy</h3><span>25 April 2026</span></div>
+
+<div class="event" onclick="openEvent('Book Talk','Diskusi buku inspiratif bersama pembicara yang membahas ide, pemikiran, dan insight menarik dari buku pilihan.','12 April 2026')">
+<img src="https://picsum.photos/400/250?book">
+<div class="event-content">
+<h3>Book Talk</h3>
+<span>12 April 2026</span>
+<p>Diskusi santai membahas buku inspiratif bersama pembicara.</p>
+</div>
+</div>
+
+<div class="event" onclick="openEvent('Creative Writing','Workshop menulis kreatif yang membantu peserta mengembangkan ide, gaya menulis, dan teknik storytelling.','18 April 2026')">
+<img src="https://picsum.photos/400/250?writing">
+<div class="event-content">
+<h3>Creative Writing</h3>
+<span>18 April 2026</span>
+<p>Belajar teknik menulis kreatif dan storytelling.</p>
+</div>
+</div>
+
+<div class="event" onclick="openEvent('Digital Literacy','Pelatihan literasi digital untuk meningkatkan kemampuan mencari, mengevaluasi, dan menggunakan informasi secara bijak di era digital.','25 April 2026')">
+<img src="https://picsum.photos/400/250?technology">
+<div class="event-content">
+<h3>Digital Literacy</h3>
+<span>25 April 2026</span>
+<p>Belajar memahami dan menggunakan informasi digital dengan bijak.</p>
+</div>
+</div>
+
 </div>
 </section>
+<h2 style="text-align:center">Library Events</h2>
+.event-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.event{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+cursor:pointer;
+transition:0.4s;
+position:relative;
+}
+
+.event img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.event-content{
+padding:15px;
+text-align:center;
+}
+
+.event h3{
+margin:5px 0;
+font-family:'Montserrat';
+color:#7a1b26;
+}
+
+.event p{
+font-size:13px;
+color:#555;
+line-height:1.5;
+}
+
+.event span{
+font-size:12px;
+color:#888;
+}
+
+.event:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
 
 <!-- MEDIA -->
 <section id="media">
@@ -264,6 +349,16 @@ function loadRegister(){document.getElementById('formContent').innerHTML=`
 
 function submitForm(){alert('Berhasil');}
 </script>
+function openEvent(title,desc,date){
+document.getElementById("eventTitle").innerText=title;
+document.getElementById("eventDesc").innerText=desc;
+document.getElementById("eventDate").innerText="Tanggal: "+date;
+document.getElementById("eventModal").style.display="flex";
+}
+
+function closeEvent(){
+document.getElementById("eventModal").style.display="none";
+}
 
 </body>
 </html>

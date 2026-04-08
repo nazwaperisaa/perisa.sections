@@ -18,210 +18,96 @@ nav a{margin-left:20px;color:#fff;text-decoration:none;cursor:pointer;}
 section{padding:80px 12%;display:none;}
 .active{display:block;}
 
+/* HERO UPGRADE */
 .hero{text-align:center;position:relative;}
 .hero h1{
-font-family:'Montserrat';
-font-size:52px;
-background:linear-gradient(90deg,#ff7a7a,#ffffff,#ffb3b3);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 3s ease-in-out infinite alternate;
+    font-family:'Montserrat';
+    font-size:52px;
+    background:linear-gradient(90deg,#ff7a7a,#ffffff,#ffb3b3);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:glow 3s ease-in-out infinite alternate;
 }
-
 @keyframes glow{
-from{filter:drop-shadow(0 0 5px rgba(255,122,122,0.5));}
-to{filter:drop-shadow(0 0 20px rgba(255,122,122,0.9));}
+    from{filter:drop-shadow(0 0 5px rgba(255,122,122,0.5));}
+    to{filter:drop-shadow(0 0 20px rgba(255,122,122,0.9));}
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    font-size:40px;
+    top:-10px;
+    right:20%;
+    animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
 }
 
+/* SEARCH MODERN */
 .search-box{max-width:420px;margin:25px auto;position:relative;}
 .search-box input{
-width:100%;
-padding:16px 20px;
-border-radius:30px;
-border:none;
-outline:none;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-font-size:14px;
+    width:100%;
+    padding:16px 20px;
+    border-radius:30px;
+    border:none;
+    outline:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    font-size:14px;
 }
-
 .search-box::after{
-content:"🔍";
-position:absolute;
-right:15px;
-top:50%;
-transform:translateY(-50%);
+    content:"🔍";
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
 }
 
-.book-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.book{
-background:#fff;
-border-radius:16px;
-padding:10px;
-text-align:center;
-transition:0.3s;
-}
-
-.book img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-}
-
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin-top:30px;}
+.book{background:#fff;border-radius:16px;padding:10px;text-align:center;transition:0.3s;}
+.book img{width:100%;height:180px;object-fit:cover;border-radius:12px;}
 .book:hover{transform:translateY(-5px);} 
 
-.profile-text{
-font-family:'Montserrat';
-font-size:17px;
-line-height:1.9;
-max-width:850px;
-margin:0 auto;
-background:linear-gradient(90deg,#7a1b26,#ff7a7a,#ffb3b3);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-text-align:center;
-}
+.profile-text{font-family:'Montserrat';font-size:17px;line-height:1.9;max-width:850px;margin:0 auto;background:linear-gradient(90deg,#7a1b26,#ff7a7a,#ffb3b3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
 
 .card-container{display:flex;gap:25px;flex-wrap:wrap;justify-content:center;margin-top:40px;}
+.card{width:380px;border-radius:40px;padding:25px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;cursor:pointer;position:relative;overflow:hidden;transition:0.4s;}
+.card::before{content:"";position:absolute;width:120%;height:120%;background:rgba(255,255,255,0.15);top:-100%;left:-100%;transform:rotate(25deg);transition:0.5s;}
+.card:hover::before{top:0;left:0;}
+.card h3{margin:0;font-family:'Montserrat';font-size:22px;}
+.card p{margin-top:12px;font-size:14px;line-height:1.7;color:#ffeaea;}
+.card:hover{transform:scale(1.05);} 
 
-.card{
-width:380px;
-border-radius:40px;
-padding:25px;
-background:linear-gradient(135deg,#ff7a7a,#7a1b26);
-color:#fff;
-cursor:pointer;
-transition:0.4s;
-}
+.event-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;}
+.event{width:220px;height:120px;border-radius:60px;background:linear-gradient(135deg,#ff7a7a,#7a1b26);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:0.4s;cursor:pointer;position:relative;overflow:hidden;}
+.event::after{content:"";position:absolute;width:150%;height:150%;background:rgba(255,255,255,0.15);top:-120%;left:-120%;transform:rotate(25deg);transition:0.5s;}
+.event:hover::after{top:0;left:0;}
+.event:hover{transform:scale(1.1) rotate(-2deg);} 
+.event span{font-size:13px;margin-top:6px;}
 
-.card:hover{transform:scale(1.05);}
-
-/* EVENT BARU */
-
-.event-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:40px;
-}
-
-.event{
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-cursor:pointer;
-transition:0.4s;
-}
-
-.event img{
-width:100%;
-height:170px;
-object-fit:cover;
-}
-
-.event-content{
-padding:15px;
-text-align:center;
-}
-
-.event h3{
-margin:5px 0;
-font-family:'Montserrat';
-color:#7a1b26;
-}
-
-.event p{
-font-size:13px;
-color:#555;
-line-height:1.5;
-}
-
-.event span{
-font-size:12px;
-color:#888;
-}
-
-.event:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-
-.video iframe{
-width:100%;
-max-width:700px;
-height:380px;
-border-radius:16px;
-display:block;
-margin:auto;
-}
+.video iframe{width:100%;max-width:700px;height:380px;border-radius:16px;display:block;margin:auto;}
 
 .admin{display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:center;}
+.admin img{width:220px;height:220px;border-radius:20px;background:#ccc;}
+.link-btn{padding:10px 18px;border-radius:30px;background:#7a1b26;color:#fff;text-decoration:none;margin-right:10px;}
 
-.admin img{
-width:220px;
-height:220px;
-border-radius:20px;
-background:#ccc;
-}
-
-.link-btn{
-padding:10px 18px;
-border-radius:30px;
-background:#7a1b26;
-color:#fff;
-text-decoration:none;
-margin-right:10px;
-}
-
+/* CONTACT FUN */
 .contact{text-align:center;background:linear-gradient(135deg,#7a1b26,#ff7a7a);color:#fff;}
+.feedback-box{max-width:500px;margin:auto;background:#fff;padding:35px;border-radius:25px;color:#000;box-shadow:0 15px 40px rgba(0,0,0,0.3);}
+.feedback-box input,.feedback-box textarea{width:100%;margin:12px 0;padding:14px;border-radius:14px;border:1px solid #ddd;transition:0.3s;}
+.feedback-box input:focus,.feedback-box textarea:focus{border-color:#ff7a7a;box-shadow:0 0 10px rgba(255,122,122,0.5);}
+.feedback-box button{width:100%;padding:14px;border:none;border-radius:30px;background:linear-gradient(90deg,#ff7a7a,#7a1b26);color:#fff;font-weight:600;transition:0.3s;}
+.feedback-box button:hover{transform:scale(1.05);} 
 
-.feedback-box{
-max-width:500px;
-margin:auto;
-background:#fff;
-padding:35px;
-border-radius:25px;
-color:#000;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
+.modal-box{background:#fff;padding:25px;border-radius:15px;width:350px;position:relative;}
+.close-modal{position:absolute;top:10px;right:15px;cursor:pointer;font-size:20px;}
+.modal-box input{width:100%;margin:8px 0;padding:10px;border-radius:10px;border:1px solid #ccc;}
+.modal-box button{width:100%;padding:10px;background:#7a1b26;color:#fff;border:none;border-radius:10px;}
+.switch{text-align:center;margin-top:10px;cursor:pointer;color:#7a1b26;}
 
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.6);
-justify-content:center;
-align-items:center;
-}
-
-.modal-box{
-background:#fff;
-padding:25px;
-border-radius:15px;
-width:350px;
-position:relative;
-}
-
-.close-modal{
-position:absolute;
-top:10px;
-right:15px;
-cursor:pointer;
-font-size:20px;
-}
-
-footer{
-background:#4b0f16;
-color:#fff;
-text-align:center;
-padding:15px;
-}
+footer{background:#4b0f16;color:#fff;text-align:center;padding:15px;}
 </style>
 </head>
 
@@ -244,7 +130,6 @@ padding:15px;
 <section id="home" class="active">
 <div class="hero">
 <h1>Selamat Datang di Perisa's Library</h1>
-
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Cari koleksi buku..." onkeyup="searchBook()">
 </div>
@@ -259,73 +144,43 @@ padding:15px;
 </div>
 
 <h2 style="text-align:center;margin-top:40px">Upcoming Events</h2>
-
 <div class="event-grid">
-
-<div class="event" onclick="openEvent('Book Talk','Diskusi buku inspiratif bersama pembicara.','12 April 2026')">
-<img src="https://picsum.photos/400/250?book">
-<div class="event-content">
-<h3>Book Talk</h3>
-<span>12 April 2026</span>
-<p>Diskusi santai membahas buku inspiratif.</p>
-</div>
+<div class="event"><h3>Book Talk</h3><span>12 April 2026</span></div>
+<div class="event"><h3>Creative Writing</h3><span>18 April 2026</span></div>
+<div class="event"><h3>Digital Literacy</h3><span>25 April 2026</span></div>
 </div>
 
-<div class="event" onclick="openEvent('Creative Writing','Workshop menulis kreatif dan storytelling.','18 April 2026')">
-<img src="https://picsum.photos/400/250?writing">
-<div class="event-content">
-<h3>Creative Writing</h3>
-<span>18 April 2026</span>
-<p>Belajar teknik menulis kreatif.</p>
-</div>
-</div>
-
-<div class="event" onclick="openEvent('Digital Literacy','Pelatihan literasi digital.','25 April 2026')">
-<img src="https://picsum.photos/400/250?technology">
-<div class="event-content">
-<h3>Digital Literacy</h3>
-<span>25 April 2026</span>
-<p>Belajar memahami informasi digital.</p>
-</div>
-</div>
-
-</div>
 </div>
 </section>
 
-<!-- EVENT PAGE -->
+<!-- PROFILE -->
+<section id="profile">
+<h2 style="text-align:center">Profile</h2>
+<p class="profile-text">Perisa’s Library adalah perpustakaan digital yang dirancang sebagai ruang akses informasi yang cepat, praktis, 
+    dan relevan dengan kebutuhan masa kini. Melalui platform ini, pengguna dapat menjelajahi berbagai koleksi digital seperti buku,
+    artikel, dan referensi lainnya tanpa batasan waktu dan tempat, cukup dengan beberapa klik saja. Tampilan yang sederhana namun tetap
+    modern membuat pengalaman mencari dan membaca informasi jadi lebih nyaman dan efisien. Perisa’s Library hadir sebagai teman belajar 
+    digital yang mendukung aktivitas akademik sekaligus memudahkan siapa pun untuk tetap update dan berkembang di tengah arus informasi yang terus bergerak.</p>
+<div class="card-container">
+<div class="card" onclick="toggleCard(this)"><h3>Visi</h3><p>Menjadi perpustakaan digital yang mudah dijangkau, selalu relevan, dan selaras 
+    dengan perkembangan zaman, sekaligus menghadirkan pengalaman mencari dan belajar yang terasa lebih ringan, praktis, dan menyenangkan.
+    Perisa’s Library diharapkan bisa menjadi tempat yang bisa diandalkan untuk menemukan informasi dengan cepat dan tepat, sekaligus mendorong 
+    pengguna untuk tetap aktif, mandiri, dan terus berkembang di tengah arus teknologi yang terus bergerak maju.</p></div>
+<div class="card" onclick="toggleCard(this)"><h3>Misi</h3><p>Menghadirkan layanan perpustakaan digital yang mudah digunakan, cepat diakses,
+    dan sesuai dengan kebutuhan pengguna melalui penyediaan koleksi yang beragam dan relevan. Perisa’s Library berupaya menciptakan pengalaman
+    pencarian informasi yang efisien dan nyaman, sekaligus mendukung proses belajar yang lebih mandiri dan berkelanjutan. Selain itu, pengembangan 
+    layanan terus dilakukan dengan memanfaatkan teknologi secara optimal agar kualitas akses dan kepuasan pengguna tetap terjaga di tengah perkembangan
+    informasi yang semakin dinamis.</p></div>
+</div>
+</section>
+
+<!-- EVENT -->
 <section id="event">
 <h2 style="text-align:center">Library Events</h2>
-
 <div class="event-grid">
-
-<div class="event" onclick="openEvent('Book Talk','Diskusi buku inspiratif bersama pembicara.','12 April 2026')">
-<img src="https://picsum.photos/400/250?book">
-<div class="event-content">
-<h3>Book Talk</h3>
-<span>12 April 2026</span>
-<p>Diskusi santai membahas buku inspiratif.</p>
-</div>
-</div>
-
-<div class="event" onclick="openEvent('Creative Writing','Workshop menulis kreatif dan storytelling.','18 April 2026')">
-<img src="https://picsum.photos/400/250?writing">
-<div class="event-content">
-<h3>Creative Writing</h3>
-<span>18 April 2026</span>
-<p>Belajar teknik menulis kreatif.</p>
-</div>
-</div>
-
-<div class="event" onclick="openEvent('Digital Literacy','Pelatihan literasi digital.','25 April 2026')">
-<img src="https://picsum.photos/400/250?technology">
-<div class="event-content">
-<h3>Digital Literacy</h3>
-<span>25 April 2026</span>
-<p>Belajar memahami informasi digital.</p>
-</div>
-</div>
-
+<div class="event"><h3>Book Talk</h3><span>12 April 2026</span></div>
+<div class="event"><h3>Creative Writing</h3><span>18 April 2026</span></div>
+<div class="event"><h3>Digital Literacy</h3><span>25 April 2026</span></div>
 </div>
 </section>
 
@@ -333,7 +188,7 @@ padding:15px;
 <section id="media">
 <h2 style="text-align:center">Inspirational Video</h2>
 <div class="video">
-<iframe src="https://www.youtube.com/embed/vPZ4icW7puI" allowfullscreen></iframe>
+<iframe src="https://youtu.be/vPZ4icW7puI?si=87LvlpFcVGhGARRK" allowfullscreen></iframe>
 </div>
 </section>
 
@@ -343,9 +198,13 @@ padding:15px;
 <div class="admin">
 <img src="">
 <div>
-<p>Halo semuanya, kenalin saya Nazwa Perisa Nasution...</p>
+<p>Halo semuanya, kenalin saya Nazwa Perisa Nasution, mahasiswa aktif program studi S1 Perpustakaan dan Sains Informasi di Universitas Sumatera Utara,
+    saat ini sedang menempuh semester 6. Saya memiliki ketertarikan pada pengelolaan informasi dan pengembangan layanan perpustakaan berbasis digital, 
+    sehingga saya mencoba mengembangkan Perisa’s Library sebagai salah satu bentuk implementasi dari apa yang saya pelajari. Website ini juga tidak
+    lepas dari dukungan teman-teman dan orang-orang di sekitar saya yang selalu memberi semangat, ide, dan masukan selama proses pembuatannya.
+    Melalui Perisa’s Library, saya berharap bisa menghadirkan akses informasi yang lebih praktis, mudah digunakan, dan bermanfaat bagi banyak orang.</p>
 <a href="#" class="link-btn">CV</a>
-<a href="https://www.instagram.com/nazwanasutionn/" target="_blank" class="link-btn">Instagram</a>
+<a href="https://www.instagram.com/nazwanasutionn/?utm_source=ig_web_button_share_sheet" target="_blank" class="link-btn">Instagram</a>
 </div>
 </div>
 </section>
@@ -361,7 +220,7 @@ padding:15px;
 </div>
 </section>
 
-<!-- LOGIN MODAL -->
+<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-box">
 <div class="close-modal" onclick="closeModal()">✕</div>
@@ -372,87 +231,38 @@ padding:15px;
 </div>
 </div>
 
-<!-- EVENT MODAL -->
-<div class="modal" id="eventModal">
-<div class="modal-box">
-<div class="close-modal" onclick="closeEvent()">✕</div>
-<h3 id="eventTitle"></h3>
-<p id="eventDate"></p>
-<p id="eventDesc"></p>
-</div>
-</div>
-
 <footer>
 © 2026 Perisa Library
 </footer>
 
 <script>
+function showSection(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);} 
 
-function showSection(id){
-document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-window.scrollTo(0,0);
-}
+function toggleCard(el){el.classList.toggle('active');}
 
-function searchBook(){
-let input=document.getElementById('searchInput').value.toLowerCase();
-let books=document.getElementsByClassName('book');
-for(let i=0;i<books.length;i++){
-let txt=books[i].innerText.toLowerCase();
-books[i].style.display=txt.includes(input)?"block":"none";
-}
-}
+function searchBook(){let input=document.getElementById('searchInput').value.toLowerCase();let books=document.getElementsByClassName('book');for(let i=0;i<books.length;i++){let txt=books[i].innerText.toLowerCase();books[i].style.display=txt.includes(input)?"block":"none";}}
 
-function openModal(){
-document.getElementById('modal').style.display='flex';
-loadLogin();
-}
-
-function closeModal(){
-document.getElementById('modal').style.display='none';
-}
+function openModal(){document.getElementById('modal').style.display='flex';loadLogin();}
+function closeModal(){document.getElementById('modal').style.display='none';}
 
 let isLogin=true;
+function switchForm(){isLogin=!isLogin;document.getElementById('formTitle').innerText=isLogin?'Login':'Register';isLogin?loadLogin():loadRegister();}
 
-function switchForm(){
-isLogin=!isLogin;
-document.getElementById('formTitle').innerText=isLogin?'Login':'Register';
-isLogin?loadLogin():loadRegister();
-}
-
-function loadLogin(){
-document.getElementById('formContent').innerHTML=`
+function loadLogin(){document.getElementById('formContent').innerHTML=`
 <input placeholder='First Name'>
 <input placeholder='Last Name'>
 <input placeholder='Email'>
-<input type='password' placeholder='Password'>`;
-}
+<input type='password' placeholder='Password'>`;}
 
-function loadRegister(){
-document.getElementById('formContent').innerHTML=`
+function loadRegister(){document.getElementById('formContent').innerHTML=`
 <input placeholder='First Name'>
 <input placeholder='Last Name'>
 <input placeholder='Email'>
 <input placeholder='No HP'>
 <input type='password' placeholder='Password'>
-<input type='password' placeholder='Confirm Password'>`;
-}
+<input type='password' placeholder='Confirm Password'>`;}
 
-function submitForm(){
-alert('Berhasil');
-}
-
-function openEvent(title,desc,date){
-document.getElementById("eventTitle").innerText=title;
-document.getElementById("eventDesc").innerText=desc;
-document.getElementById("eventDate").innerText="Tanggal: "+date;
-document.getElementById("eventModal").style.display="flex";
-}
-
-function closeEvent(){
-document.getElementById("eventModal").style.display="none";
-}
-
+function submitForm(){alert('Berhasil');}
 </script>
 
 </body>
